@@ -1,0 +1,44 @@
+.stack, .cost, .discovery, .integration, .improve { width: 100%; max-width: 26rem; margin: auto; }
+.task { position: relative; overflow: hidden; display: flex; align-items: center; gap: .75rem; padding: .85rem 1rem; margin-block: .7rem; border: 1px solid var(--line, var(--surface-border)); border-radius: .75rem; background: var(--paper, var(--surface)); font-size: .75rem; animation: task-flow 7s ease-in-out infinite; }
+.task svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--visual-accent); }
+.task > i { position: absolute; bottom: 0; left: 0; height: 2px; width: 100%; transform-origin: left; background: var(--visual-accent); animation: progress 7s ease-in-out infinite; animation-delay: inherit; }
+.costBars { display: grid; gap: 1rem; padding: 1rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--paper); }
+.costBars span { font-size: .7rem; }
+.costBars i { display: block; height: .65rem; margin-top: .5rem; width: var(--bar-width); border-radius: .3rem; background: var(--visual-accent); opacity: .35; transform-origin: left; animation: effort 7s ease-in-out infinite; }
+.receipt { display: flex; align-items: center; justify-content: space-between; gap: .7rem; padding: .85rem 1rem; margin-top: 1rem; border: 1px solid var(--line, var(--surface-border)); border-radius: .75rem; background: var(--paper, var(--tint)); font-size: .75rem; }
+.receipt svg { flex-shrink: 0; color: var(--visual-accent); }
+.lanes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; padding: 1rem 1rem 2rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--paper); }
+.lanes > div > span { font-size: .65rem; display: block; margin-bottom: .75rem; }
+.lanes i { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .65rem; margin-bottom: .5rem; border-radius: .4rem; background: #f4fbfd; border: 1px solid var(--line); animation: task-flow 6s ease-in-out infinite; }
+.lanes i > span { width: 65%; height: 4px; background: #b3ced6; border-radius: 2px; }
+.travel { position: absolute; left: 1rem; right: 1rem; bottom: 1rem; height: 1px; background: var(--line); }
+.travel::after, .wire i { content: ""; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--visual-accent); top: -3px; animation: transfer 6s ease-in-out infinite; }
+.scale { text-align: center; width: 100%; }
+.capacity { display: flex; justify-content: center; align-items: end; gap: .7rem; height: 5rem; }
+.capacity > span { display: grid; gap: .3rem; animation: capacity-rise 7s ease-in-out infinite; }
+.capacity i { width: 1.5rem; height: .65rem; border: 1px solid #ffffff80; background: #ffffff26; border-radius: .2rem; }
+.scaleCore { margin: 1.5rem auto 1rem; display: grid; place-items: center; gap: .5rem; font-size: .75rem; color: white; }
+.caption { font-size: .7rem; text-align: center; line-height: 1.7; }
+.nodes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+.nodes > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; min-height: 4.5rem; padding: .75rem .3rem; border: 1px solid color-mix(in oklch, var(--visual-accent) 25%, transparent); background: var(--surface); border-radius: .75rem; font-size: .65rem; text-align: center; }
+.nodes svg { width: 20px; height: 20px; }
+.discovery { position: relative; }
+.scanLine { width: 100%; height: 1px; background: var(--visual-accent); margin: 1rem 0; opacity: .5; transform-origin: left; animation: progress 6s ease-in-out infinite; }
+.designTask:nth-child(1) { background: #fbf5e7; color: #8f6b2b; }
+.designTask:nth-child(2) { background: #edf4ef; color: #3d7059; }
+.designTask:nth-child(3) { background: #faf0f3; color: #a55b71; }
+.designTask svg { color: inherit; }
+.designTask > i { background: currentColor; }
+.integration .nodes > div { animation: task-flow 6s ease-in-out infinite; }
+.wire { position: relative; height: 1px; background: var(--visual-accent); opacity: .5; margin: 1.25rem 1rem; }
+.chart { width: 100%; height: 4rem; margin-block: 1rem; stroke: var(--visual-accent); stroke-width: 1.6; }
+.chart path { stroke-dasharray: 350; animation: graph 8s ease-in-out infinite; }
+@keyframes task-flow { 0%, 100% { opacity: .7; transform: translateY(2px); } 35%, 70% { opacity: 1; transform: translateY(0); } }
+@keyframes progress { 0%, 10% { transform: scaleX(.1); } 65%, 100% { transform: scaleX(1); } }
+@keyframes effort { 0%, 100% { transform: scaleX(1); } 50%, 75% { transform: scaleX(.65); } }
+@keyframes transfer { 0% { left: 0; opacity: 0; } 20%, 80% { opacity: 1; } 100% { left: calc(100% - 6px); opacity: 0; } }
+@keyframes capacity-rise { 0%, 100% { transform: translateY(3px); opacity: .6; } 50% { transform: translateY(0); opacity: 1; } }
+@keyframes graph { 0% { stroke-dashoffset: 350; } 65%, 100% { stroke-dashoffset: 0; } }
+@media (width < 768px) { .nodes { gap: .4rem; } .lanes { gap: .4rem; padding-inline: .5rem; } .lanes i { padding: .5rem .3rem; } .receipt { font-size: .65rem; } }
+@media (prefers-reduced-motion: reduce) { .stack *, .cost *, .lanes *, .scale *, .discovery *, .integration *, .improve *, .travel::after { animation: none !important; } }
+.scale .caption, .scaleCore p { color: #e7f1ff; }

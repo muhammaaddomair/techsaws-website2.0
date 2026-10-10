@@ -1,0 +1,2 @@
+.section { position: relative; }
+.cards { margin-inline: clamp(1rem, 2vw, 1.5rem); }

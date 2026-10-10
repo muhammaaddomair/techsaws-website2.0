@@ -1,0 +1,71 @@
+.canvasBlend {
+  position: relative;
+}
+
+/* Let the canvas emerge gradually from the hero's dark base. */
+.canvasBlend > div > div[aria-hidden="true"] {
+  mask-image: linear-gradient(to bottom, transparent, black clamp(8rem, 14vw, 14rem));
+}
+
+.section {
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+}
+
+/* Reserved for the process visual in the next iteration. */
+.processSpace {
+  min-height: clamp(10rem, 20vw, 22rem);
+}
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 5rem); padding-bottom: 1rem; }
+.card { position: relative; z-index: 2; min-width: 0; }
+.visual { position: relative; overflow: hidden; display: grid; place-items: center; aspect-ratio: 2.2; border: 1px solid var(--surface-border); border-radius: 1rem; background: radial-gradient(ellipse at center, #7490af0b, transparent 75%), var(--surface-card); color: #8d9fb5; }
+.visual::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#8d9fb522 1px, transparent 1px); background-size: 20px 20px; mask-image: radial-gradient(ellipse, black, transparent 75%); pointer-events: none; }
+.diagram { position: relative; width: 92%; max-width: 34rem; overflow: visible; }
+.diagram rect, .diagram circle { fill: #17212d; stroke: #839ab544; stroke-width: 1; }
+.diagram path { stroke: #8d9fb5; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.diagram text { fill: #9aabbe; stroke: none; font-family: var(--font-manrope), sans-serif; font-size: 12px; }
+.diagram .route { stroke: #839ab550; }
+.diagram .brokenRoute { stroke: #839ab566; stroke-dasharray: 4 7; }
+.diagram .packet { fill: #9eb7d4; stroke: none; offset-path: path("M100 85H380V157H100V85"); animation: packet-travel 7s linear infinite; }
+.queueOne, .queueTwo, .queueThree { animation: queue-wait 6s ease-in-out infinite; }
+.queueTwo { animation-delay: .7s; }
+.queueThree { animation-delay: 1.4s; }
+.clockHand { transform-origin: 390px 106px; animation: clock-wait 12s linear infinite; }
+.softPulse { animation: queue-wait 5s ease-in-out infinite; }
+.fallingLead { animation: lead-drop 5s ease-in-out infinite; }
+.searchPulse { animation: search-wait 5s ease-in-out infinite; }
+.growingBar { transform-box: fill-box; transform-origin: bottom; animation: workload-grow 6s ease-in-out infinite; }
+.costLine { stroke-dasharray: 280; animation: cost-rise 6s ease-in-out infinite; }
+.number { margin-top: 1.5rem; color: #8d9fb5; font-size: .8rem; letter-spacing: .08em; }
+.title { margin-top: .75rem; font-family: var(--font-space-grotesk), sans-serif; color: var(--surface-heading); font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.3; font-weight: 500; letter-spacing: -.025em; text-wrap: balance; }
+.description { margin-top: 1rem; max-width: 38rem; color: var(--surface-foreground); font-size: .9rem; line-height: 1.85; text-wrap: pretty; }
+.solution { display: flex; flex-wrap: wrap; gap: .35rem .75rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--surface-border); color: #a3b3c6; font-size: .72rem; line-height: 1.7; }
+.solution > span { color: var(--surface-foreground); }
+.visual[data-visible="false"] *, .visual[data-visible="false"] *::after { animation-play-state: paused; }
+@keyframes packet-travel { to { offset-distance: 100%; } }
+@keyframes queue-wait { 0%, 100% { opacity: .65; transform: translateY(0); } 45% { opacity: 1; transform: translateY(3px); } }
+@keyframes clock-wait { to { transform: rotate(360deg); } }
+@keyframes lead-drop { 0%, 15% { opacity: .8; transform: translateY(0); } 65%, 100% { opacity: 0; transform: translateY(25px); } }
+@keyframes search-wait { 0%, 100% { stroke-opacity: .4; } 50% { stroke-opacity: 1; fill: #25374a; } }
+@keyframes workload-grow { 0%, 100% { transform: scaleY(.7); opacity: .7; } 55% { transform: scaleY(1); opacity: 1; } }
+@keyframes cost-rise { 0%, 100% { stroke-dashoffset: 80; opacity: .45; } 55% { stroke-dashoffset: 0; opacity: .9; } }
+@media (width < 768px) { .grid { grid-template-columns: 1fr; gap: 2.75rem; } .visual { aspect-ratio: 1.9; } .number { margin-top: 1.25rem; } .description { font-size: .875rem; } }
+@media (prefers-reduced-motion: reduce) { .visual *, .visual *::after { animation: none !important; } .packet { offset-distance: 35%; } }
+/* Distinct, opaque colors keep each problem visual easy to scan. */
+.visual { --visual-color: #e5b65b; --visual-fill: #f3d99d; --visual-ink: #493719; --visual-base: #201b13; background: var(--visual-base); }
+.visual[data-kind="responses"] { --visual-color: #eb937d; --visual-fill: #f3c0ae; --visual-ink: #562f25; --visual-base: #231916; }
+.visual[data-kind="tools"] { --visual-color: #b89ae7; --visual-fill: #d9c9f0; --visual-ink: #443255; --visual-base: #1d1926; }
+.visual[data-kind="leads"] { --visual-color: #e795b0; --visual-fill: #f0c1d0; --visual-ink: #552d3c; --visual-base: #24181e; }
+.visual[data-kind="knowledge"] { --visual-color: #70c7bb; --visual-fill: #a7ddd4; --visual-ink: #244943; --visual-base: #142220; }
+.visual[data-kind="costs"] { --visual-color: #9bc97b; --visual-fill: #c7dda9; --visual-ink: #33472a; --visual-base: #1a2116; }
+.visual::before { background-image: radial-gradient(color-mix(in srgb, var(--visual-color) 20%, var(--visual-base)) 1px, transparent 1px); }
+.diagram rect, .diagram circle { fill: var(--visual-fill); stroke: var(--visual-color); stroke-width: 1.5; }
+.diagram path, .diagram .route, .diagram .brokenRoute { stroke: var(--visual-color); stroke-width: 2; }
+.diagram text { fill: var(--visual-color); }
+.diagram g > text { fill: var(--visual-ink); font-weight: 500; }
+.diagram .packet { fill: var(--visual-color); filter: drop-shadow(0 0 3px var(--visual-color)); }
+.visual[data-kind="knowledge"] .diagram > text:first-of-type { fill: var(--visual-ink); }
+@keyframes search-wait { 0%, 100% { transform: translateX(-3px); } 50% { transform: translateX(3px); } }
+@keyframes queue-wait { 0%, 100% { opacity: .9; transform: translateY(0); } 45% { opacity: 1; transform: translateY(3px); } }
+@keyframes workload-grow { 0%, 100% { transform: scaleY(.7); } 55% { transform: scaleY(1); } }
+@keyframes cost-rise { 0%, 100% { stroke-dashoffset: 80; } 55% { stroke-dashoffset: 0; } }
