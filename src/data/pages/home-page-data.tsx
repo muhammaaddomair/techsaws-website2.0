@@ -63,15 +63,45 @@ export const whySectionData = {
 export const processSectionData = {
   eyebrow: "How We Work",
   heading: ["From Conversation", "to Execution."],
-  description: "A straightforward process to understand your needs, plan the right solution, and get your project moving.",
+  description:
+    "A straightforward process to understand your needs, plan the right solution, and get your project moving.",
   buttonLabel: "Let's Get Started",
   href: "/connect",
-  supportingText: "Tell us what you're working on. We'll help you figure out the next step.",
+  supportingText:
+    "Tell us what you're working on. We'll help you figure out the next step.",
   steps: [
-    { id: "conversation", number: "01", title: "Tell Us What You Need", description: "Share your project, challenges, or goals through our contact form. No technical knowledge required.", image: "/images/process-conversation-ribbons.png" },
-    { id: "goals", number: "02", title: "Let's Discuss Your Goals", description: "We'll connect to understand your business, discuss requirements, and explore the best approach.", image: "/images/process-goals-wave.png" },
-    { id: "plan", number: "03", title: "Get a Clear Plan", description: "Receive a proposed solution outlining the scope, timeline, deliverables, and estimated cost.", image: "/images/process-plan-rings.png" },
-    { id: "start", number: "04", title: "Approve & Get Started", description: "Once we agree on the plan and terms, we complete onboarding and begin execution.", image: "/images/process-start-folds.png" },
+    {
+      id: "conversation",
+      number: "01",
+      title: "Tell Us What You Need",
+      description:
+        "Share your project, challenges, or goals through our contact form. No technical knowledge required.",
+      image: "/images/process-conversation-ribbons.png",
+    },
+    {
+      id: "goals",
+      number: "02",
+      title: "Let's Discuss Your Goals",
+      description:
+        "We'll connect to understand your business, discuss requirements, and explore the best approach.",
+      image: "/images/process-goals-wave.png",
+    },
+    {
+      id: "plan",
+      number: "03",
+      title: "Get a Clear Plan",
+      description:
+        "Receive a proposed solution outlining the scope, timeline, deliverables, and estimated cost.",
+      image: "/images/process-plan-rings.png",
+    },
+    {
+      id: "start",
+      number: "04",
+      title: "Approve & Get Started",
+      description:
+        "Once we agree on the plan and terms, we complete onboarding and begin execution.",
+      image: "/images/process-start-folds.png",
+    },
   ],
 } as const;
 

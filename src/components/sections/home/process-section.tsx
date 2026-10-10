@@ -32,7 +32,7 @@ export default function ProcessSection() {
                 <p className={styles.cardDescription}>{step.description}</p>
               </div>
               <div aria-hidden="true" className={styles.artwork}>
-                <Image src={step.image} alt="" fill sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 25vw" className={styles.image} />
+                <Image src={step.image} alt="" fill loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 25vw" className={styles.image} />
               </div>
             </motion.li>
           ))}

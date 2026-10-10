@@ -82,12 +82,12 @@
   top: 0;
   translate: -50% 0;
   width: var(--light-width);
-  background: linear-gradient(90deg, transparent, var(--cta-blue) 25%, var(--cta-lilac) 50%, var(--cta-pink) 75%, transparent);
+  background: linear-gradient(90deg, transparent, var(--primary) 25%, var(--secondary) 50%, var(--primary) 75%, transparent);
 }
 .footerLight::before { height: 1px; }
 .footerLight::after {
   height: 2px;
-  box-shadow: 0 -2px 14px 3px color-mix(in oklch, var(--cta-lilac) 25%, transparent);
+  box-shadow: 0 -2px 14px 3px color-mix(in oklch, var(--secondary) 25%, transparent);
   filter: blur(3px);
 }
 

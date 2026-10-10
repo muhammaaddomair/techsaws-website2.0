@@ -2,6 +2,7 @@
 
 import { useState, useRef, type ReactNode } from "react";
 import { LazyMotion, domAnimation, MotionConfig } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 import { GlobalContext } from "@/contexts/global-context";
 
 export default function GlobalProvider({ children }: { children: ReactNode }) {
@@ -28,6 +29,7 @@ export default function GlobalProvider({ children }: { children: ReactNode }) {
           }}
         >
           {children}
+          <Toaster position="top-right" containerStyle={{ zIndex: 1200 }} />
         </GlobalContext.Provider>
       </MotionConfig>
     </LazyMotion>
