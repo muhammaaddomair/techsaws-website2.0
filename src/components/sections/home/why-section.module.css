@@ -1,0 +1,61 @@
+.section { position: relative; }
+.intro { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(2rem, 4vw, 4rem); padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(3rem, 6vw, 6rem); }
+.description { max-width: 28rem; padding-top: 2.5rem; color: var(--surface-foreground); font-size: .875rem; line-height: 1.85; }
+.heading { padding-left: 1.5rem; border-left: 1px solid var(--surface-border); }
+.eyebrow { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem; font-size: .875rem; color: var(--surface-heading); }
+.eyebrow > span { display: flex; gap: 4px; }
+.eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+.flow { position: relative; padding: clamp(1.5rem, 4vw, 3.5rem); }
+.route { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; stroke: #81828c; stroke-width: 1; opacity: .55; }
+.route path:first-child { stroke-dasharray: 4 5; vector-effect: non-scaling-stroke; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 5rem); row-gap: clamp(3rem, 6vw, 5rem); }
+.reason { --accent: #82729e; --tint: #eeeaf4; --deep: #554569; min-width: 0; }
+.reason[data-tone="honey"] { --accent: #aa8b43; --tint: #f6f0df; --deep: #75612e; }
+.reason[data-tone="peach"] { --accent: #b58676; --tint: #f4e9e2; --deep: #885f50; }
+.visual { position: relative; display: grid; place-items: center; height: 16rem; padding: 1.5rem; overflow: hidden; border-radius: 1rem; background: radial-gradient(ellipse at 50% 45%, var(--tint), transparent 75%), var(--surface); border: 1px solid var(--surface-border); color: var(--deep); transition: border-color 400ms ease; }
+.visual::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(color-mix(in oklch, var(--accent) 20%, transparent) 1px, transparent 1px); background-size: 18px 18px; mask-image: radial-gradient(ellipse, black, transparent 75%); pointer-events: none; }
+.copy { position: relative; padding: 1.5rem .25rem 0; }
+.number { display: block; margin-bottom: .6rem; color: var(--accent); font-size: .7rem; letter-spacing: .12em; }
+.copy h3 { font-size: clamp(1.3rem, 1.8vw, 1.65rem); font-weight: 500; line-height: 1.25; letter-spacing: -.025em; color: var(--surface-heading); }
+.copy > p { margin-top: .85rem; max-width: 31rem; color: var(--surface-foreground); font-size: .875rem; line-height: 1.8; }
+.systems { position: relative; width: 100%; max-width: 26rem; height: 13rem; }
+.connections { position: absolute; inset: 0; width: 100%; height: 100%; stroke: var(--accent); stroke-width: 1; opacity: .65; }
+.signal { fill: var(--accent); stroke: none; animation: signal-pulse 4s ease-in-out infinite; }
+.systemNodes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; padding-top: 1rem; }
+.systemNodes > div { display: flex; flex-direction: column; align-items: center; gap: .55rem; padding: .9rem .3rem; border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent); border-radius: .7rem; background: var(--surface); font-size: .65rem; }
+.connected { position: absolute; bottom: .75rem; left: 50%; translate: -50% 0; display: flex; align-items: center; justify-content: center; gap: .55rem; width: max-content; max-width: 100%; padding: .8rem 1rem; background: var(--tint); border: 1px solid color-mix(in oklch, var(--accent) 25%, transparent); border-radius: .7rem; font-size: .75rem; }
+.statusDot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; animation: signal-pulse 4s ease-in-out infinite; }
+.outcomes { position: relative; width: 100%; max-width: 23rem; display: grid; gap: .75rem; }
+.task { position: relative; overflow: hidden; display: flex; gap: .75rem; align-items: center; padding: .85rem 1rem; border-radius: .7rem; border: 1px solid color-mix(in oklch, var(--accent) 20%, transparent); background: var(--surface); font-size: .75rem; animation: task-rise 7s ease-in-out infinite; }
+.task:nth-child(2) { margin-left: 1rem; background: var(--tint); }
+.task:nth-child(3) { margin-left: 2rem; }
+.taskIcon { display: grid; place-items: center; color: var(--accent); }
+.task > i { margin-left: auto; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.taskProgress { position: absolute; bottom: 0; left: 0; height: 2px; width: 100%; background: var(--accent); opacity: .4; transform-origin: left; animation: task-progress 7s ease-in-out infinite; animation-delay: inherit; }
+.growth { width: 100%; max-width: 23rem; position: relative; }
+.building { display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; gap: 1rem; height: 10rem; padding-inline: 1rem; }
+.buildingColumn { display: flex; flex-direction: column; gap: .35rem; text-align: center; }
+.buildingColumn > span { font-size: .65rem; margin-bottom: .3rem; }
+.buildingColumn i { display: block; height: 1.5rem; border: 1px solid color-mix(in oklch, var(--accent) 28%, transparent); border-radius: .35rem; background: var(--tint); animation: block-rise 8s ease-in-out infinite; }
+.buildingColumn:nth-child(2) i { background: color-mix(in oklch, var(--accent) 23%, var(--surface)); }
+.buildingColumn:nth-child(3) i { background: color-mix(in oklch, var(--accent) 35%, var(--surface)); }
+.foundation { display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin-top: .75rem; padding: .9rem 1rem; background: var(--surface); border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent); border-radius: .7rem; font-size: .75rem; }
+.partnership { position: relative; width: 100%; max-width: 24rem; }
+.timeline { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 1rem; }
+.timeline::before { content: ''; position: absolute; left: 16%; right: 16%; top: 1.6rem; height: 1px; background: var(--accent); opacity: .35; }
+.timeline > div { position: relative; }
+.timeline span { display: grid; place-items: center; width: 3.2rem; height: 3.2rem; margin: auto; background: var(--surface); border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent); border-radius: 50%; animation: partner-pulse 8s ease-in-out infinite; }
+.timeline p { margin-top: .7rem; font-size: .7rem; }
+.continuity { display: flex; align-items: center; justify-content: center; gap: .7rem; margin-top: 1.75rem; padding: .85rem; background: var(--tint); border: 1px solid color-mix(in oklch, var(--accent) 20%, transparent); border-radius: .7rem; font-size: .75rem; }
+.continuity svg { width: 2.2rem; height: 1rem; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 140; animation: continuity-draw 8s ease-in-out infinite; }
+.reason[data-running="false"] *, .reason[data-running="false"] *::after { animation-play-state: paused; }
+@keyframes signal-pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+@keyframes task-rise { 0%, 100% { transform: translateX(0); } 45%, 70% { transform: translateX(3px); } }
+@keyframes task-progress { 0%, 10% { transform: scaleX(.15); } 60%, 100% { transform: scaleX(1); } }
+@keyframes block-rise { 0%, 100% { transform: translateY(2px); opacity: .65; } 40%, 75% { transform: translateY(0); opacity: 1; } }
+@keyframes partner-pulse { 0%, 100% { background: var(--surface); } 35%, 55% { background: var(--tint); } }
+@keyframes continuity-draw { 0% { stroke-dashoffset: 140; } 60%, 100% { stroke-dashoffset: 0; } }
+@media (hover: hover) and (pointer: fine) { .reason:hover .visual { border-color: color-mix(in oklch, var(--accent) 40%, var(--surface-border)); } }
+@media (width < 768px) { .intro { grid-template-columns: 1fr; gap: 1.5rem; } .heading { grid-row: 1; padding-left: 0; border-left: 0; } .description { padding-top: 0; max-width: 34rem; } .route { display: none; } .flow { padding: 0 clamp(1rem, 2vw, 1.5rem); } .grid { gap: 3rem; } .visual { padding: 1rem; } }
+@media (max-width: 639px) { .grid { grid-template-columns: 1fr; } .visual { height: 15rem; } .systemNodes { gap: .4rem; } .systemNodes > div { font-size: .6rem; } .copy { padding-top: 1.25rem; } }
+@media (prefers-reduced-motion: reduce) { .reason *, .reason *::after { animation: none !important; transition: none !important; } }
