@@ -4,7 +4,8 @@
   --cta-blue: #a6c9f2;
   position: relative;
   overflow: hidden;
-  padding-block: calc(var(--section-gap) / 2);
+  padding-top: var(--section-space);
+  padding-bottom: calc(var(--section-space) * 2);
 }
 
 .panel {
@@ -66,7 +67,6 @@
 }
 
 .footerLight {
-  --light-width: 34%;
   position: absolute;
   z-index: 2;
   bottom: 0;
@@ -75,22 +75,6 @@
   height: 1px;
   background: var(--surface-border);
 }
-.footerLight::before, .footerLight::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  translate: -50% 0;
-  width: var(--light-width);
-  background: linear-gradient(90deg, transparent, var(--primary) 25%, var(--secondary) 50%, var(--primary) 75%, transparent);
-}
-.footerLight::before { height: 1px; }
-.footerLight::after {
-  height: 2px;
-  box-shadow: 0 -2px 14px 3px color-mix(in oklch, var(--secondary) 25%, transparent);
-  filter: blur(3px);
-}
-
 /* Move the two natural-size ribbons below the copy on narrower screens. */
 @media (max-width: 1023px) {
   .ribbon { top: auto; bottom: -1rem; width: 22.5rem; }

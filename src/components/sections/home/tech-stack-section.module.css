@@ -1,13 +1,13 @@
 .section {
   position: relative;
-  padding: calc(var(--section-gap) / 2) clamp(1rem, 2vw, 1.5rem) 0;
+  padding: var(--section-space) clamp(1rem, 2vw, 1.5rem) 0;
 }
 
 .intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  margin-bottom: clamp(3rem, 7vw, 7rem);
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 .eyebrow {

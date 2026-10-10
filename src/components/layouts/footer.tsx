@@ -47,7 +47,7 @@ function Footer() {
       className="surface-dark relative overflow-hidden font-body text-surface-foreground"
       style={{ clipPath: "polygon(0% 0,100% 0%,100% 100%,0 100%)" }}
     >
-      <div className="relative page-layout pt-[calc(var(--section-gap)/2)]">
+      <div className="relative page-layout pt-[var(--section-space)]">
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 pb-14 md:gap-y-14 lg:grid-cols-4 xl:grid-cols-[0.65fr_0.8fr_0.9fr_1.15fr_1.55fr] xl:gap-x-10 xl:pb-20">
           <Link
             href="/"

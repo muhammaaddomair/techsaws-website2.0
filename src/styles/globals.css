@@ -81,6 +81,7 @@
 
 :root {
   --section-gap: clamp(6rem, 9vw, 9rem);
+  --section-space: clamp(2rem, 4vw, 4.5rem);
   --background: oklch(0.975 0.004 250);
   --dark-background: oklch(0.135 0.012 255);
 
@@ -239,7 +240,7 @@
   }
 
   .section {
-    padding-block: calc(var(--section-gap) / 2);
+    padding-block: var(--section-space);
   }
 
   /* Balanced spacing around the straight surface transition. */

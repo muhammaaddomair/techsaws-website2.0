@@ -1,5 +1,5 @@
 .section { position: relative; }
-.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(3rem, 6vw, 6rem); }
+.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(2.5rem, 4vw, 4rem); }
 .eyebrow { display: flex; align-items: center; align-self: start; gap: .75rem; color: var(--surface-heading); font-size: .875rem; }
 .eyebrow > span { display: flex; gap: 4px; }
 .eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }

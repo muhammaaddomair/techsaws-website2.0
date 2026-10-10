@@ -1,5 +1,5 @@
 .section { position: relative; }
-.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(3rem, 6vw, 6rem); }
+.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(2.5rem, 4vw, 4rem); }
 .introCopy { grid-column: 1; grid-row: 1; }
 .introCopy > p { margin-top: 1.5rem; max-width: 36rem; font-size: .875rem; line-height: 1.85; color: var(--surface-foreground); }
 .eyebrow { display: flex; align-items: center; align-self: start; justify-self: end; grid-column: 2; grid-row: 1; gap: .75rem; color: var(--surface-heading); font-size: .875rem; }
