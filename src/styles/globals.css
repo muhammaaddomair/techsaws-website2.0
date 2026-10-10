@@ -242,13 +242,13 @@
     padding-block: calc(var(--section-gap) / 2);
   }
 
-  /* Give the wave a smaller content inset than a regular section join. */
+  /* Balanced spacing around the straight surface transition. */
   .section:has(+ .section-boundary) {
-    padding-bottom: calc(var(--section-gap) / 4);
+    padding-bottom: clamp(3rem, 6vw, 6rem);
   }
 
   .section-boundary + .section {
-    padding-top: calc(var(--section-gap) / 3);
+    padding-top: clamp(3rem, 6vw, 6rem);
   }
 
   .section-header {
@@ -306,7 +306,7 @@
   .section-boundary {
     position: relative;
     width: 100%;
-    height: var(--section-gap);
+    height: clamp(2rem, 4vw, 4rem);
     margin-block: -1px;
     overflow: hidden;
     pointer-events: none;
@@ -334,23 +334,14 @@
     fill: var(--boundary-to);
   }
 
-  .section-boundary-outer,
-  .section-boundary-edge,
-  .section-boundary-inner {
-    vector-effect: non-scaling-stroke;
-    stroke-width: 1.5px;
-  }
-
-  .section-boundary-outer {
-    stroke: color-mix(in oklch, var(--boundary-to) 28%, var(--boundary-from));
-  }
-
-  .section-boundary-edge {
-    stroke: color-mix(in oklch, var(--accent) 50%, var(--boundary-to));
-  }
-
-  .section-boundary-inner {
-    stroke: color-mix(in oklch, var(--boundary-from) 20%, var(--boundary-to));
+  .section-boundary-highlight {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 50%;
+    height: 1px;
+    opacity: .35;
+    background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--primary) 40%, var(--boundary-to)), color-mix(in oklch, var(--secondary) 40%, var(--boundary-to)), transparent);
   }
 }
 

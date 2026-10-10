@@ -13,14 +13,11 @@ let refreshTracking: (() => void) | undefined;
 function startTracking() {
   let frame = 0;
   let regions: HTMLElement[] = [];
-  let boundaryUnderControl = false;
   const measure = () => {
     frame = 0;
     const measured = regions.map(element => ({ element, rect: element.getBoundingClientRect() }));
-    boundaryUnderControl = false;
     for (const subscriber of subscribers) {
       const bounds = subscriber.element.getBoundingClientRect();
-      const x = Math.max(0, Math.min(innerWidth - 1, bounds.left + bounds.width / 2));
       const y = Math.min(innerHeight - 1, Math.max(0, bounds.top + bounds.height / 2));
       let next: HeaderSurface = "dark";
       let nearestDistance = Infinity;
@@ -32,12 +29,7 @@ function startTracking() {
         nearestDistance = distance;
         nearestHeight = rect.height;
         if (element.classList.contains("section-boundary")) {
-          if (distance === 0) boundaryUnderControl = true;
-          const path = element.querySelector<SVGPathElement>(".section-boundary-fill");
-          const matrix = path?.getScreenCTM();
-          const incoming = path && matrix
-            ? path.isPointInFill(new DOMPoint(x, y).matrixTransform(matrix.inverse()))
-            : y > rect.top + rect.height / 2;
+          const incoming = y > rect.top + rect.height / 2;
           next = incoming === element.classList.contains("transition-dark-light") ? "light" : "dark";
         } else {
           next = element.classList.contains("surface-light") ? "light" : "dark";
@@ -65,10 +57,9 @@ function startTracking() {
   const mutations = new MutationObserver(records => {
     // Animated wave paths only need a measurement, not a new DOM inventory.
     if (records.some(record => record.type === "childList" || record.attributeName === "class")) refresh();
-    else if (boundaryUnderControl && records.some(record => (record.target as Element).classList.contains("section-boundary-fill"))) schedule();
   });
   const main = document.querySelector("main");
-  if (main) mutations.observe(main, { subtree: true, childList: true, attributes: true, attributeFilter: ["class", "d"] });
+  if (main) mutations.observe(main, { subtree: true, childList: true, attributes: true, attributeFilter: ["class"] });
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule);
   document.addEventListener("visibilitychange", schedule);

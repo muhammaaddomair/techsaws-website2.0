@@ -29,7 +29,6 @@ export default function SectionCanvas({ children, surface = "dark", layout = "co
   const id = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const maskPaths = useRef(new Map<string, SVGPathElement>());
   const [regions, setRegions] = useState<Region[]>([]);
 
   useEffect(() => {
@@ -38,15 +37,12 @@ export default function SectionCanvas({ children, surface = "dark", layout = "co
     if (!root || !content) return;
     let frame = 0;
     let previous = "";
-    const boundaries = new Map<SVGPathElement, number>();
     const measure = () => {
       frame = 0;
       const origin = root.getBoundingClientRect().top;
-      boundaries.clear();
-      const next = Array.from(content.querySelectorAll<HTMLElement>("section.surface-light, section.surface-dark, .section-boundary")).map((element, index) => {
+      const next = Array.from(content.querySelectorAll<HTMLElement>("section.surface-light, section.surface-dark, .section-boundary")).map((element) => {
         const rect = element.getBoundingClientRect();
         const path = element.querySelector<SVGPathElement>(".section-boundary-fill");
-        if (path) boundaries.set(path, index);
         return {
           top: rect.top - origin,
           height: rect.height,
@@ -64,27 +60,8 @@ export default function SectionCanvas({ children, surface = "dark", layout = "co
     const resize = new ResizeObserver(schedule);
     resize.observe(content);
     content.querySelectorAll("section, .section-boundary").forEach((element) => resize.observe(element));
-    // Keep the clipping edge synchronized with the gently animated wave.
-    const mutations = new MutationObserver((records) => {
-      let layoutChanged = false;
-      for (const record of records) {
-        if (record.type === "attributes" && record.attributeName === "d") {
-          const source = record.target as SVGPathElement;
-          const index = boundaries.get(source);
-          const curve = source.getAttribute("d");
-          if (index !== undefined && curve) {
-            // Mirror the animated edge directly; React only handles layout changes.
-            for (const light of [false, true]) {
-              maskPaths.current.get(`${light}-${index}`)?.setAttribute("d", curve);
-            }
-          }
-        } else {
-          layoutChanged = true;
-        }
-      }
-      if (layoutChanged) schedule();
-    });
-    mutations.observe(content, { subtree: true, childList: true, attributes: true, attributeFilter: ["class", "d"] });
+    const mutations = new MutationObserver(schedule);
+    mutations.observe(content, { subtree: true, childList: true, attributes: true, attributeFilter: ["class"] });
     window.addEventListener("resize", schedule);
     schedule();
     return () => { cancelAnimationFrame(frame); resize.disconnect(); mutations.disconnect(); window.removeEventListener("resize", schedule); };
@@ -96,11 +73,7 @@ export default function SectionCanvas({ children, surface = "dark", layout = "co
     return (
       <svg key={index} y={region.top} width="100%" height={region.height} viewBox="0 0 1440 360" preserveAspectRatio="none" overflow="hidden">
         <rect width="1440" height="360" fill={incoming === "white" ? "black" : "white"} />
-        <path ref={(node) => {
-          const key = `${light}-${index}`;
-          if (node) maskPaths.current.set(key, node);
-          else maskPaths.current.delete(key);
-        }} d={region.curve} fill={incoming} />
+        <path d={region.curve} fill={incoming} />
       </svg>
     );
   });

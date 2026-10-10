@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: var(--section-gap) clamp(1rem, 2vw, 1.5rem) calc(var(--section-gap) / 4);
+  padding: var(--section-gap) clamp(1rem, 2vw, 1.5rem) clamp(3rem, 6vw, 6rem);
 }
 
 .intro {
