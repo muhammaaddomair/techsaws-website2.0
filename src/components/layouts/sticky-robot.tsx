@@ -43,7 +43,7 @@ export default function StickyRobot() {
     <div className="fixed bottom-5 right-4 z-40 flex flex-col items-center gap-1 md:bottom-9 md:right-8">
       <button
         type="button"
-        onClick={openConnectModal}
+        onClick={(event) => openConnectModal(event.currentTarget)}
         aria-label="Start a conversation"
         className="group relative select-none rounded-full transition-transform duration-300 hover:scale-105 motion-reduce:transform-none"
       >

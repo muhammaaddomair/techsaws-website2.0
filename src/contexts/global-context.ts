@@ -1,10 +1,12 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, type RefObject } from "react";
 
 export type GlobalContextValue = {
   isConnectModalOpen: boolean;
-  openConnectModal: () => void;
+  connectSurface: "dark" | "light";
+  connectReturnFocus: RefObject<HTMLElement | null>;
+  openConnectModal: (trigger?: HTMLElement) => void;
   closeConnectModal: () => void;
 };
 

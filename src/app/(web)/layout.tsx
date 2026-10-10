@@ -1,5 +1,6 @@
 import Header from "@/components/layouts/header";
 import StickyRobot from "@/components/layouts/sticky-robot";
+import ConnectModal from "@/components/modals/connect-modal";
 import Footer from "@/components/layouts/footer";
 
 export default function WebsiteLayout({
@@ -13,6 +14,7 @@ export default function WebsiteLayout({
       {children}
       <StickyRobot />
       <Footer />
+      <ConnectModal />
     </>
   );
 }

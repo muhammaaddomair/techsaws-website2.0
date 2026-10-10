@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import ConnectLink from "@/components/shared/connect-link";
 import { ArrowUpRight } from "lucide-react";
 import { m as motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ export default function ProcessSection() {
           <div>
             <h2 id="process-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
             <p className={styles.description}>{data.description}</p>
-            <Button asChild className="mt-5 min-h-11 gap-2 rounded-lg px-5 font-body"><Link href={data.href}>{data.buttonLabel}<ArrowUpRight aria-hidden="true" /></Link></Button>
+            <Button asChild className="mt-5 min-h-11 gap-2 rounded-lg px-5 font-body"><ConnectLink href={data.href}>{data.buttonLabel}<ArrowUpRight aria-hidden="true" /></ConnectLink></Button>
             <p className={styles.support}>{data.supportingText}</p>
           </div>
         </div>

@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/accordion";
 
 import { SidebarNavData } from "@/data/layout-data";
-import { useGlobalContext } from "@/contexts/global-context";
+
 
 import { cn } from "@/lib/utils";
 
@@ -25,11 +25,12 @@ import Logo from "../../../../public/favicons/logo.png";
 
 interface SidebarProps {
   onClose: () => void;
+  onConnect: () => void;
 }
 
-export default function Sidebar({ onClose }: SidebarProps) {
+export default function Sidebar({ onClose, onConnect }: SidebarProps) {
   const pathname = usePathname();
-  const { openConnectModal } = useGlobalContext();
+
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,8 +65,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
   }, [onClose]);
 
   const handleGetStarted = () => {
-    onClose();
-    openConnectModal();
+    onConnect();
   };
 
   return (
@@ -274,16 +274,21 @@ export default function Sidebar({ onClose }: SidebarProps) {
           </div>
 
           <div className="w-full mt-6 flex items-center justify-end">
-            <button
-              type="button"
-              onClick={handleGetStarted}
+            <Link
+              href="/connect"
+              aria-haspopup="dialog"
+              onClick={(event) => {
+                if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                event.preventDefault();
+                handleGetStarted();
+              }}
               className="flex items-center gap-3 rounded-lg bg-card px-4 py-3.5 text-base font-body font-bold text-heading transition-transform duration-300 hover:scale-[1.02] tracking-wide"
             >
               Get Started
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-dark-background text-dth-heading">
                 <ArrowRight size={12} />
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </motion.div>

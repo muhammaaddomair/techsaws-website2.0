@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Menu } from "lucide-react";
@@ -15,12 +15,16 @@ import dynamic from "next/dynamic";
 import SurfaceTooltip from "./surface-tooltip";
 import { ServicesDropdown } from "./services-dropdown";
 
+import ConnectLink from "@/components/shared/connect-link";
+
 import Logo from "../../../public/favicons/logo.png";
 
 const Sidebar = dynamic(() => import("./sidebar/sidebar"));
 
 export default function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const pendingConnect = useRef(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
   const { openConnectModal } = useGlobalContext();
   const { headerRef, surface } = useHeaderSurface();
@@ -86,9 +90,7 @@ export default function Header() {
               );
             })}
 
-            <button
-              type="button"
-              onClick={openConnectModal}
+            <ConnectLink
               className="group relative ml-3 flex items-center gap-3 rounded-lg bg-black px-4 py-3.5 text-sm font-body font-light text-white transition-transform duration-300 hover:scale-[1.02] tracking-wide"
             >
               Get Started
@@ -98,7 +100,7 @@ export default function Header() {
               <SurfaceTooltip className="right-0 top-full mt-5">
                 Have a project in mind?
               </SurfaceTooltip>
-            </button>
+            </ConnectLink>
           </nav>
         </div>
 
@@ -110,6 +112,7 @@ export default function Header() {
 
             <button
               type="button"
+              ref={menuButton}
               aria-label={sidebarOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={sidebarOpen}
               onClick={() => {
@@ -123,8 +126,13 @@ export default function Header() {
         </div>
       </header>
 
-      <AnimatePresence mode="wait">
-        {sidebarOpen && <Sidebar onClose={closeSidebar} />}
+      <AnimatePresence mode="wait" onExitComplete={() => {
+        if (pendingConnect.current) {
+          pendingConnect.current = false;
+          openConnectModal(menuButton.current ?? undefined);
+        }
+      }}>
+        {sidebarOpen && <Sidebar onClose={closeSidebar} onConnect={() => { pendingConnect.current = true; closeSidebar(); }} />}
       </AnimatePresence>
     </>
   );
