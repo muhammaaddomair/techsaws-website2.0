@@ -38,7 +38,7 @@ export const coreValuesSectionData = {
 
 export const servicesSectionData = {
   eyebrow: "What We Provide",
-  heading: ["The right systems.", "Real business momentum."],
+  heading: ["Smarter Systems.", "Better Business."],
   description: "We provide AI automation, software development, growth systems, and cybersecurity services tailored to your business. Reduce manual work, create more sales opportunities, scale your operations, and protect what matters.",
   services: [
     { id: "automation", number: "01", title: "AI & Automation", description: "Give repetitive work a smarter way forward. Connect your tools, streamline operations, and free your team to focus on what comes next.", href: "/services/ai-automation", tone: "sage", tags: ["Workflows", "AI agents", "Connected operations"], story: ["Request received", "AI processes", "Work completed"] },
@@ -50,7 +50,7 @@ export const servicesSectionData = {
 
 export const whySectionData = {
   eyebrow: "Why TechSaws",
-  heading: ["Built to work together.", "Ready to grow with you."],
+  heading: ["Built to Fit.", "Ready to Grow."],
   description: "We understand how your business works, connect the right systems, and stay involved as your needs evolve.",
   reasons: [
     { id: "systems", number: "01", title: "The whole picture first", description: "We understand your workflows before recommending solutions, so every system fits your business and works with what you already use.", tone: "lavender", labels: ["Your people", "Your processes", "Your systems", "One connected business"] },

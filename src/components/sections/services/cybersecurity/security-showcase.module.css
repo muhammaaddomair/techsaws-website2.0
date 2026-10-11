@@ -8,7 +8,7 @@
 .scenarios button[aria-pressed="true"] { border-color: #f8717160; background: #39212b; color: #fff; }
 .scenarios button:hover { background: #2b1d25; color: #fff; }
 .showcase button:focus-visible, .showcase a:focus-visible { outline: 2px solid #fb7185; outline-offset: 4px; }
-.panel { overflow: hidden; border: 1px solid #dce5ef; border-radius: 1.4rem; background: #fff; color: #243b55; box-shadow: 0 16px 48px #00000026; }
+.panel { overflow: hidden; border: 0; border-radius: 1.4rem; background: #fff; color: #243b55; box-shadow: 0 16px 48px #00000026; }
 .panelBar { display: flex; align-items: center; justify-content: space-between; padding: .85rem 1.4rem; border-bottom: 1px solid #e5eaf1; background: #f8fafc; font-size: .6rem; letter-spacing: .09em; color: #7b899a; }
 .panelBar > span:first-child { display: flex; gap: 4px; }
 .panelBar i { width: 5px; height: 5px; border-radius: 50%; background: #bcc7d4; }
@@ -79,3 +79,15 @@
   .panelBar { padding-inline: 1rem; font-size: .5rem; }
 }
 @media (prefers-reduced-motion: reduce) { .showcase *, .showcase *::after { animation: none !important; transition: none !important; } }
+
+.terminalBar { display: flex; align-items: center; gap: .75rem; padding: .45rem .75rem 0; background: #202020; color: #d9d9d9; font-family: ui-monospace,Consolas,monospace; }
+.terminalTab { display: flex; align-items: center; gap: .6rem; padding: .75rem .85rem; border-radius: .5rem .5rem 0 0; background: #0c0c0c; font-size: .65rem; }
+.terminalTab > svg:first-child { color: #e57373; }
+.terminalTab > svg:last-child { margin-left: .8rem; }
+.windowControls { display: flex; gap: 1.1rem; margin-left: auto; }
+.terminalPrompt { padding: .8rem 1.1rem; background: #0c0c0c; color: #e5e5e5; font-family: ui-monospace,Consolas,monospace; font-size: .65rem; border-bottom: 1px solid #333; }
+.terminalPrompt > span:first-child { color: #fb7185; margin-right: .6rem; }
+.promptDetail { color: #999; }
+.showcase .demoButton { background: #dc2626; color: #fff; }
+.showcase .demoButton:hover { background: #b91c1c; }
+@media (width < 768px) { .terminalTab { font-size: .55rem; padding-inline: .5rem; gap: .3rem; } .windowControls { gap: .5rem; } .promptDetail { display: none; } }

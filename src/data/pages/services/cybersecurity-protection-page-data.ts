@@ -60,8 +60,8 @@ export const cybersecurityProtectionPageData = {
   solution: {
   "eyebrow": "WHAT WE BUILD",
   "heading": [
-    "Find Weaknesses.",
-    "Build Stronger Defenses."
+    "Close Gaps.",
+    "Stay Protected."
   ],
   "description": "We assess, test, and strengthen your systems to reduce security risks and protect the technology your business depends on.",
   "items": [
@@ -98,8 +98,8 @@ export const cybersecurityProtectionPageData = {
   outcomes: {
   "eyebrow": "THE IMPACT",
   "heading": [
-    "Less Risk. Stronger Protection.",
-    "Greater Confidence."
+    "Less Risk.",
+    "More Confidence."
   ],
   "description": "Protect your business from security threats, reduce costly disruptions, and build confidence in the systems your operations depend on.",
   "items": [
@@ -167,7 +167,7 @@ export const cybersecurityProtectionPageData = {
 },
   process: {
     eyebrow: "OUR PROCESS",
-    heading: ["Find the Risks.", "Strengthen Your Defenses."],
+    heading: ["Find Risks.", "Build Defenses."],
     description: "We assess your security, uncover weaknesses, and help protect your business from threats before they become costly problems.",
     items: [
       { id: "understand", tone: "sage", title: "Understand Your Systems", description: "We review your infrastructure, applications, and security needs to identify what requires protection.", labels: ["Infrastructure", "Applications", "Your data", "Map what needs protection"] },

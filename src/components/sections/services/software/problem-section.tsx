@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SectionTitleDots from "@/components/shared/section-title-dots";
 import { softwareDigitalProductsPageData } from "@/data/pages/services/software-digital-products-page-data";
 import introStyles from "@/components/sections/home/tech-stack-section.module.css";
@@ -13,7 +14,7 @@ export default function ProblemSection() {
         <div className={introStyles.intro}>
           <p className={introStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
           <div>
-            <h2 id="software-problem-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
+            <h2 id="software-problem-heading" className={titleStyles.heading}>
               {data.heading[0]}<br />{data.heading[1]}
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-6 text-surface-foreground">{data.description}</p>
@@ -26,7 +27,6 @@ export default function ProblemSection() {
               <p className={styles.number}>{String(index + 1).padStart(2, "0")}</p>
               <h3 className={styles.title}>{item.title}</h3>
               <p className={styles.description}>{item.description}</p>
-              <p className={styles.solution}><span>How we help</span>{item.solution}</p>
             </article>
           ))}
         </div>

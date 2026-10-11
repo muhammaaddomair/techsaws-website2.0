@@ -23,7 +23,7 @@ function AIAutomationPage() {
           <SectionBoundary direction="light-dark" />
           <ProcessSection headingClassName={titleStyles.heading} />
           <FAQSection headingClassName={titleStyles.heading} />
-          <CTASection headingClassName={`${titleStyles.heading} ${titleStyles.centered}`} />
+          <CTASection />
         </SectionCanvas>
     </main>
   );

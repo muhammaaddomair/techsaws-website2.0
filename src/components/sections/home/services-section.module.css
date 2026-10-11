@@ -1,4 +1,4 @@
-.section { position: relative; }
+.section { position: relative; padding-top: var(--section-space); }
 .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(2.5rem, 4vw, 4rem); }
 .introCopy { grid-column: 1; grid-row: 1; }
 .introCopy > p { margin-top: 1.5rem; max-width: 36rem; font-size: .875rem; line-height: 1.85; color: var(--surface-foreground); }

@@ -1,5 +1,5 @@
 import styles from "./cybersecurity-hero-section.module.css";
-import { ArrowUpRight, ArrowDown, Check } from "lucide-react";
+import { ArrowUpRight, ArrowDown, ScanSearch, ListOrdered, ShieldCheck } from "lucide-react";
 import SectionTitleDots from "@/components/shared/section-title-dots";
 import ConnectLink from "@/components/shared/connect-link";
 import { Button } from "@/components/ui/button";
@@ -19,9 +19,9 @@ export default function CybersecurityHeroSection() {
       <p className={styles.support}>Tell us what you need to protect. We’ll help you find the right starting point.</p>
       <div className={styles.takeaways}>
         <p>A clearer picture. A practical plan.</p>
-        <ul>{["Understand where your business is exposed", "Know what needs attention first", "Get clear recommendations for stronger protection"].map(label => <li key={label}><Check size={16} aria-hidden="true" />{label}</li>)}</ul>
+        <ul>{[{ label: "Understand where your business is exposed", Icon: ScanSearch }, { label: "Know what needs attention first", Icon: ListOrdered }, { label: "Get clear recommendations for stronger protection", Icon: ShieldCheck }].map(({ label, Icon }) => <li key={label}><Icon size={18} aria-hidden="true" />{label}</li>)}</ul>
       </div>
-      <p className={styles.assurances}>Authorized testing. Plain-language findings. Your business in control.</p>
+      
       </div>
       <div id="cybersecurity-demo" className={styles.demo}><SecurityShowcase /></div>
     </div>

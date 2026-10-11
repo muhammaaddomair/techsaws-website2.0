@@ -1,5 +1,8 @@
 "use client";
 
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
+
+
 import SectionTitleDots from "@/components/shared/section-title-dots";
 
 
@@ -87,7 +90,7 @@ export default function ServicesSection() {
       <div className="page-layout">
         <div className={styles.intro}>
           <div className={styles.introCopy}>
-            <h2 id="services-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
+            <h2 id="services-heading" className={titleStyles.heading}>{data.heading[0]}<br />{data.heading[1]}</h2>
             <p className="max-md:hidden">{data.description}</p>
           </div>
           <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>

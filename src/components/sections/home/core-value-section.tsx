@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SectionTitleDots from "@/components/shared/section-title-dots";
 import { coreValuesSectionData } from "@/data/pages/home-page-data";
 import CoreValueSymbol from "./core-value-symbol";
@@ -18,12 +19,12 @@ function CoreValueSection() {
         </p>
         <h2
           id="core-values-heading"
-          className="mt-4 font-heading text-3xl font-medium tracking-tight text-surface-heading sm:text-4xl"
+          className={`mt-4 ${titleStyles.heading}`}
         >
           {coreValuesSectionData.heading}
         </h2>
       </div>
-      <div className="flex items-start border-l-[3px] border-white pl-5">
+      <div className="flex items-start border-l border-surface-border pl-5">
         <p className="max-w-md text-sm leading-7 text-surface-foreground">
           {coreValuesSectionData.description}
         </p>
@@ -40,7 +41,6 @@ function CoreValueSection() {
           </li>
         ))}
       </MobileCardCarousel>
-      <p className="mt-8 max-w-3xl text-sm leading-7 text-surface-foreground max-md:hidden">{coreValuesSectionData.deliveryNote}</p>
     </section>
   );
 }

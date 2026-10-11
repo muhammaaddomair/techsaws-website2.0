@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import GrowthHeroSection from "@/components/sections/services/growth/growth-hero-section";
 import ProblemSection from "@/components/sections/services/growth/problem-section";
 import SolutionSection from "@/components/sections/services/growth/solution-section";
@@ -20,8 +21,8 @@ export default function GrowthRevenueSystemsPage() {
         <BusinessOutcomesSection />
         <HowItWorksSection />
         <SectionBoundary direction="light-dark" />
-        <ProcessSection />
-        <FAQSection />
+        <ProcessSection headingClassName={titleStyles.heading} />
+        <FAQSection headingClassName={titleStyles.heading} />
         <CTASection />
       </SectionCanvas>
     </main>

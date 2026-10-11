@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SoftwareHeroSection from "@/components/sections/services/software/software-hero-section";
 import ProblemSection from "@/components/sections/services/software/problem-section";
 import SolutionSection from "@/components/sections/services/software/solution-section";
@@ -20,8 +21,8 @@ export default function SoftwareDigitalProductsPage() {
         <BusinessOutcomesSection />
         <HowItWorksSection />
         <SectionBoundary direction="light-dark" />
-        <ProcessSection />
-        <FAQSection />
+        <ProcessSection headingClassName={titleStyles.heading} />
+        <FAQSection headingClassName={titleStyles.heading} />
         <CTASection />
       </SectionCanvas>
     </main>

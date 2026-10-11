@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SectionTitleDots from "@/components/shared/section-title-dots";
 import { growthRevenueSystemsPageData } from "@/data/pages/services/growth-revenue-systems-page-data";
 import headingStyles from "@/components/sections/home/why-section.module.css";
@@ -16,7 +17,7 @@ export default function SolutionSection() {
             <p className={`${headingStyles.description} max-md:hidden`}>{data.description}</p>
             <div className={headingStyles.heading}>
               <p className={headingStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
-              <h2 id="growth-solution-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
+              <h2 id="growth-solution-heading" className={titleStyles.heading}>{data.heading[0]}<br />{data.heading[1]}</h2>
             </div>
           </div>
           <MobileCardCarousel className={`${cardStyles.cards} ${styles.cards}`} label="growth solutions">

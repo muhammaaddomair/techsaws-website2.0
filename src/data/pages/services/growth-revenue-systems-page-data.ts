@@ -98,7 +98,7 @@ export const growthRevenueSystemsPageData = {
   outcomes: {
   "eyebrow": "THE IMPACT",
   "heading": [
-    "More Opportunities. Better Conversions.",
+    "Better Leads.",
     "Stronger Growth."
   ],
   "description": "Build a more effective sales process that attracts the right customers, converts more opportunities, and supports consistent revenue growth.",
@@ -168,8 +168,8 @@ export const growthRevenueSystemsPageData = {
   process: {
   "eyebrow": "OUR PROCESS",
   "heading": [
-    "From Missed Opportunities",
-    "to Measurable Growth."
+    "A Clear Path",
+    "to Growth."
   ],
   "description": "We identify what's holding your sales back, build systems to attract and convert customers, and improve performance over time.",
   "items": [

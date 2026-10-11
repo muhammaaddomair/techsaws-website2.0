@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SectionBoundary from "@/components/layouts/section-boundary";
 import CoreValueSection from "@/components/sections/home/core-value-section";
 import TechStackSection from "@/components/sections/home/tech-stack-section";
@@ -28,8 +29,8 @@ function HomePage() {
       <ServicesSection />
       <WhySection />
       <SectionBoundary direction="light-dark" />
-      <ProcessSection />
-      <FAQSection />
+      <ProcessSection headingClassName={titleStyles.heading} />
+      <FAQSection headingClassName={`mt-4 ${titleStyles.heading}`} />
       <CTASection />
       </SectionCanvas>
     </main>

@@ -2,9 +2,10 @@
 
 import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
-import { ArrowRight, Check, Mail, Target, Users, Workflow } from "lucide-react";
+import { ArrowRight, Check, Mail, Target, Users, ArrowLeft, RotateCw, LockKeyhole, Star, MoreVertical, Plus, X } from "lucide-react";
 import ConnectLink from "@/components/shared/connect-link";
 import useShowcaseSequence from "@/components/shared/use-showcase-sequence";
+import growthStyles from "./growth-hero-section.module.css";
 import styles from "@/components/shared/marketing-showcase.module.css";
 
 const examples = [
@@ -20,15 +21,14 @@ export default function GrowthShowcase() {
   const [selected, setSelected] = useState(0);
   const example = examples[selected];
   return <figure ref={ref} className={styles.showcase} data-running={visible && !sequence.paused} aria-label="Illustrative lead-to-sales journey">
-    <figcaption className={styles.label}><span><Workflow size={18} aria-hidden="true" />From interest to opportunity</span><small>Interactive example</small></figcaption>
     <div className={styles.tabs} aria-label="Choose a customer journey">{examples.map((item, index) => <button type="button" key={item.label} aria-pressed={selected === index} onClick={() => { setSelected(index); sequence.reset(); }}>{item.label}</button>)}</div>
-    <div className={styles.panel}><div className={styles.bar}><span className={styles.dots} aria-hidden="true"><i /><i /><i /></span><span>YOUR CONNECTED SALES PIPELINE</span><Workflow size={14} aria-hidden="true" /></div>
+    <div className={styles.panel}><div className={growthStyles.chrome} aria-hidden="true"><div className={growthStyles.chromeTabs}><span className={growthStyles.lights}><i /><i /><i /></span><span className={growthStyles.chromeTab}><Target size={13} />Sales workspace<X size={12} /></span><Plus size={14} /></div><div className={growthStyles.navigation}><ArrowLeft size={15} /><ArrowRight size={15} /><RotateCw size={14} /><span className={growthStyles.address}><LockKeyhole size={12} />Your connected sales pipeline<Star size={13} /></span><MoreVertical size={15} /></div></div>
       <div className={styles.body}><p className={styles.kicker}>MAKE EVERY NEXT STEP CLEAR</p><h2>{example.title}</h2><p className={styles.intro}>See how a connected process helps your team respond, follow up, and focus on the right opportunities.</p>
       <div className={styles.leadCard}><span className={styles.avatar}><Users size={18} aria-hidden="true" /></span><div><strong>{example.lead}</strong><small>{example.detail}</small></div></div>
-      <div className={styles.flow} aria-hidden="true">{["Discover", "Engage", "Convert"].map((label, index) => <span key={label} data-on={sequence.phase >= index}>{label}</span>)}</div>
+      <div className={`${styles.flow} ${growthStyles.flow}`} aria-hidden="true">{["Discover", "Engage", "Convert"].map((label, index) => <span key={label} data-on={sequence.phase >= index}>{label}</span>)}</div>
       <div className={styles.journey}>{example.steps.map(([title, description], index) => { const Icon = icons[index]; return <div key={title} className={styles.journeyRow} data-active={sequence.phase === index} data-done={sequence.phase > index}><span className={styles.stepIcon}>{sequence.phase > index ? <Check size={16} aria-hidden="true" /> : <Icon size={16} aria-hidden="true" />}</span><div><strong>{title}</strong><small>{description}</small></div><span className={styles.state}>{sequence.phase > index ? "Ready" : sequence.phase === index ? <span className={styles.spinner} aria-label="In progress" /> : "Waiting"}</span></div>; })}</div>
       <div className={styles.actions}><button type="button" className={styles.actionButton} onClick={sequence.running ? sequence.togglePause : sequence.start}>{sequence.running ? sequence.paused ? "Resume journey" : "Pause journey" : sequence.complete ? "Replay journey" : "See the journey"}<ArrowRight size={16} aria-hidden="true" /></button><small>Three connected steps. One clear opportunity.</small></div></div>
       <div className={styles.result}><Target size={21} aria-hidden="true" /><div aria-live="polite"><strong>{sequence.complete ? "Context ready. Follow-up clear. Sales connected." : "Less chasing. More meaningful conversations."}</strong><p>A growth system built around your customers and your sales process.</p></div><ConnectLink href="/connect">Let&apos;s talk<ArrowRight size={14} aria-hidden="true" /></ConnectLink></div>
-    </div><p className={styles.note}>An illustrative journey. Your workflow, qualification rules, and follow-ups are tailored to your business.</p>
+    </div>
   </figure>;
 }

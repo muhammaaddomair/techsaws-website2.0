@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import CybersecurityHeroSection from "@/components/sections/services/cybersecurity/cybersecurity-hero-section";
 import ProblemSection from "@/components/sections/services/cybersecurity/problem-section";
 import SolutionSection from "@/components/sections/services/cybersecurity/solution-section";
@@ -20,8 +21,8 @@ export default function CybersecurityProtectionPage() {
         <BusinessOutcomesSection />
         <HowItWorksSection />
         <SectionBoundary direction="light-dark" />
-        <ProcessSection />
-        <FAQSection />
+        <ProcessSection headingClassName={titleStyles.heading} />
+        <FAQSection headingClassName={titleStyles.heading} />
         <CTASection />
       </SectionCanvas>
     </main>

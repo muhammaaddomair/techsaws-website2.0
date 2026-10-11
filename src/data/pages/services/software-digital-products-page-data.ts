@@ -99,7 +99,7 @@ export const softwareDigitalProductsPageData = {
   "eyebrow": "THE IMPACT",
   "heading": [
     "Better Software.",
-    "Stronger Business Performance."
+    "Better Business."
   ],
   "description": "Turn your ideas into reliable digital products that improve customer experiences, support daily operations, and grow with your business.",
   "items": [

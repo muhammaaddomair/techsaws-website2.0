@@ -1,0 +1,18 @@
+.preview { width: 100%; max-width: 60rem; }
+@media (width >= 1200px) {
+  .layout { max-width: none; margin-inline: 0; padding-left: max(3rem,calc((100% - 90rem)/2 + 3rem)); padding-right: clamp(1.5rem,2vw,3rem); grid-template-columns: clamp(28rem,36vw,44rem) minmax(0,1fr); gap: clamp(2rem,4vw,4.5rem); }
+}
+.preview .flow { color: #1c1c1e; font-weight: 700; font-size: .75rem; }
+.chrome { background: #dee1e6; border-bottom: 1px solid #c5c8cd; color: #5f6368; padding: .6rem .8rem; }
+.chromeTabs { display: flex; align-items: center; gap: 1rem; margin-bottom: .6rem; }
+.lights { display: flex; gap: 6px; flex-shrink: 0; }
+.lights i { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+.lights i:nth-child(2) { background: #febc2e; }
+.lights i:nth-child(3) { background: #28c840; }
+.chromeTab { display: flex; align-items: center; gap: .5rem; background: #fff; border-radius: .6rem .6rem 0 0; padding: .55rem .9rem; font-size: .65rem; color: #202124; }
+.chromeTab svg:first-child { color: #047857; }
+.chromeTab svg:last-child { margin-left: 1rem; }
+.navigation { display: flex; align-items: center; gap: .65rem; }
+.address { display: flex; align-items: center; gap: .5rem; background: #f1f3f4; border-radius: 999px; flex: 1; min-width: 0; padding: .45rem .75rem; font-size: .65rem; color: #3c4043; }
+.address > svg:last-child { margin-left: auto; }
+@media (width < 768px) { .navigation { gap: .4rem; } .address { font-size: .6rem; } }

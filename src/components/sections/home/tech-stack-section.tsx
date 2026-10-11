@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SectionTitleDots from "@/components/shared/section-title-dots";
 import Image from "next/image";
 import { techStackSectionData } from "@/data/pages/home-page-data";
@@ -11,7 +12,7 @@ function TechStackSection() {
       <div className={styles.intro}>
         <p className={styles.eyebrow}><SectionTitleDots /> {techStackSectionData.eyebrow}</p>
         <div>
-          <h2 id="tech-stack-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
+          <h2 id="tech-stack-heading" className={titleStyles.heading}>
             {techStackSectionData.heading[0]}<br />{techStackSectionData.heading[1]}
           </h2>
           <p className="mt-6 max-w-xl text-sm leading-6 text-surface-foreground max-md:hidden">

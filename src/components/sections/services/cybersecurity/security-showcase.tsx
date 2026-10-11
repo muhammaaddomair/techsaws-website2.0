@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, CircleAlert, Globe, LockKeyhole, Play, RotateCcw, ShieldCheck, Users, Database, Pause } from "lucide-react";
+import { ArrowRight, Check, CircleAlert, Globe, LockKeyhole, Play, RotateCcw, ShieldCheck, Users, Database, Pause, Terminal, Plus, ChevronDown, Minus, Square, X } from "lucide-react";
 import ConnectLink from "@/components/shared/connect-link";
 import { securityScenarios } from "./security-showcase-data";
 import styles from "./security-showcase.module.css";
@@ -47,10 +47,9 @@ export default function SecurityShowcase() {
   }, [busy, paused, visible]);
   function start() { setPaused(false); setProgress(reduced ? 3 : 0); }
   return <div ref={ref} className={styles.showcase} data-running={visible && !paused && !reduced}>
-    <div className={styles.demoHeading}><span><ShieldCheck size={18} />See what stronger protection can change</span><small>Interactive example</small></div>
     <div className={styles.scenarios} role="group" aria-label="Choose a security example">{securityScenarios.map((item, index) => <button key={item.id} type="button" aria-pressed={selected === index} onClick={() => { setSelected(index); setProgress(-1); setPaused(false); }}>{item.label}</button>)}</div>
     <div className={styles.panel}>
-      <div className={styles.panelBar}><span><i /><i /><i /></span><span>YOUR BUSINESS, BETTER PROTECTED</span><LockKeyhole size={14} aria-hidden="true" /></div>
+      <div className={styles.terminalBar} aria-hidden="true"><span className={styles.terminalTab}><Terminal size={16} />PowerShell / Security workspace<X size={12} /></span><Plus size={15} /><ChevronDown size={14} /><span className={styles.windowControls}><Minus size={14} /><Square size={12} /><X size={15} /></span></div><div className={styles.terminalPrompt} aria-hidden="true"><span>PS &gt;</span> security-demo<span className={styles.promptDetail}> / illustrative protection workflow</span></div>
       <div className={styles.panelBody}>
         <div className={styles.diagramSide}><AssetMap labels={scenario.assets} secured={secured} running={visible && !paused && !reduced} /><p>Small gaps can affect the things<br />your business relies on.</p></div>
         <div className={styles.detailSide}>
@@ -65,6 +64,5 @@ export default function SecurityShowcase() {
       </div>
       <div className={styles.result} data-secured={secured} aria-live="polite" aria-atomic="true"><span className={styles.resultIcon}><ShieldCheck size={23} /></span><div><strong>{secured ? scenario.outcome : "Clear risks. Practical next steps."}</strong><p>{secured ? scenario.benefit : "An assessment helps you understand what to fix first—and why it matters."}</p></div><ConnectLink href="/connect">Let’s talk<ArrowRight size={16} aria-hidden="true" /></ConnectLink></div>
     </div>
-    <p className={styles.demoNote}>Illustrative scenarios, not a scan of your device or business. Every assessment starts with your permission.</p>
   </div>;
 }
