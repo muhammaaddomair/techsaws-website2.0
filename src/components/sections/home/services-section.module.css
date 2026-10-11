@@ -9,10 +9,18 @@
 .route { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; color: #8a7c98; }
 .dashedRoute { stroke: currentColor; stroke-width: 1; stroke-dasharray: 4 5; vector-effect: non-scaling-stroke; opacity: .65; }
 .drawRoute { stroke: currentColor; stroke-width: 1; stroke-dasharray: 1; vector-effect: non-scaling-stroke; opacity: .16; }
-.routeArrows { stroke: currentColor; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.routeArrows {
+  stroke: var(--primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.routeArrows path { vector-effect: non-scaling-stroke; }
 .bento { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: clamp(1rem, 1.8vw, 1.5rem); }
 .card { --visual-accent: var(--secondary); --ink: #42334f; --muted: #675672; --line: #73538729; --paper: #ffffff66; position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 31rem; overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; color: var(--ink); background: var(--card-bg); transition: border-color 350ms ease, box-shadow 350ms ease; }
 .card:nth-child(1), .card:nth-child(4) { grid-column: span 3; }
+.section[aria-labelledby="services-heading"] .card,
+.section[aria-labelledby="ai-impact-heading"] .card { box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
 .card:nth-child(2), .card:nth-child(3) { grid-column: span 5; }
 .card[data-tone="sage"] { --visual-accent: var(--primary); --card-bg: color-mix(in oklch, var(--primary) 12%, #f2edf7); --ink: #293c58; --muted: #52647b; --line: color-mix(in oklch, var(--primary) 17%, transparent); }
 .card[data-tone="stone"] { --card-bg: color-mix(in oklch, var(--secondary) 8%, #f5f8fc); --ink: #303d5d; --muted: #586581; --line: #4864a329; }

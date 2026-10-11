@@ -1,8 +1,8 @@
 "use client";
 
-import { AnimatePresence, m, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUp, Check, Mail, PackageCheck, Pause, Play, Sparkles, Users, Workflow } from "lucide-react";
+import { ArrowUp, Check, Mail, PackageCheck, Sparkles, Users, Workflow } from "lucide-react";
 import { aiAutomationPageData } from "@/data/pages/services/ai-automation-page-data";
 import styles from "./ai-automation-hero-section.module.css";
 
@@ -18,7 +18,6 @@ export default function AIWorkflowShowcase() {
   const ref = useRef<HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [elapsed, setElapsed] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: .15 });
@@ -26,7 +25,7 @@ export default function AIWorkflowShowcase() {
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (paused || reduced || !visible) return;
+    if (reduced || !visible) return;
     let previous = performance.now();
     const interval = window.setInterval(() => {
       const now = performance.now();
@@ -35,7 +34,7 @@ export default function AIWorkflowShowcase() {
       if (!document.hidden) setElapsed(value => value + delta);
     }, 50);
     return () => window.clearInterval(interval);
-  }, [paused, reduced, visible]);
+  }, [reduced, visible]);
   const scenarioIndex = (selectedIndex + Math.floor(elapsed / CYCLE)) % scenarios.length;
   const time = reduced ? FINISH : elapsed % CYCLE;
   const scenario = scenarios[scenarioIndex];
@@ -46,16 +45,14 @@ export default function AIWorkflowShowcase() {
   const typed = scenario.prompt.slice(0, Math.floor(scenario.prompt.length * Math.min(1, time / TYPE_END)));
   const duration = reduced ? 0 : .35;
   return (
-    <figure ref={ref} className={styles.showcase} data-paused={paused || !visible} aria-label="Illustrative AI assistant workflows">
+    <figure ref={ref} className={styles.showcase} data-paused={!visible} aria-label="Illustrative AI assistant workflows">
       <figcaption className={styles.showcaseHeader}>
         <span><Sparkles size={16} aria-hidden="true" /> Your AI assistant at work <small>Workflow demo</small></span>
-        <button type="button" onClick={() => setPaused(value => !value)} aria-label={paused ? "Play workflow animation" : "Pause workflow animation"} disabled={Boolean(reduced)}>{paused || reduced ? <Play size={16} /> : <Pause size={16} />}</button>
       </figcaption>
       <div className={styles.scenarioTabs} aria-label="Choose a workflow">
         {scenarios.map((item, index) => <button type="button" key={item.label} aria-pressed={index === scenarioIndex} onClick={() => { setSelectedIndex(index); setElapsed(0); }}>{item.label}<span style={{ transform: `scaleX(${index === scenarioIndex ? time / CYCLE : 0})` }} /></button>)}
       </div>
-      <AnimatePresence mode="wait" initial={false}>
-        <m.div key={scenarioIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration }}>
+        <div>
           <div className={styles.liveComposer}>
             <p className={styles.promptLabel}>YOU ASK. AI GETS TO WORK.</p>
             <p className={styles.livePrompt} aria-hidden="true">{typed}<span className={typing ? styles.caret : styles.hiddenCaret}>|</span></p>
@@ -64,7 +61,7 @@ export default function AIWorkflowShowcase() {
           </div>
           <div className={styles.connector} aria-hidden="true"><span className={styles.signalLine} /><span className={styles.connectorNode}><Workflow size={24} strokeWidth={2.5} /></span><span className={styles.signalLine} /></div>
           <div className={styles.liveExecution} data-state={done ? "complete" : typing ? "ready" : "working"}>
-            <div className={styles.executionHeading}><span className={styles.assistantIcon}><Sparkles size={18} /></span><div><strong>{done ? "Handled. You're in control." : typing ? "Ready when you are" : "Taking care of the details"}</strong><p>{done ? "Across your connected tools" : "Your tools, working together"}</p></div><span className={styles.liveBadge}>{done ? "Complete" : typing ? "Ready" : "Working"}</span></div>
+            <div className={styles.executionHeading}><span className={styles.assistantIcon}><Sparkles size={18} /></span><div><strong>{done ? "Handled. You're in control." : typing ? "Ready when you are" : "Taking care of the details"}</strong><p>{done ? "Across your connected tools" : "Your tools, working together"}</p></div></div>
             <ol className={styles.liveTasks}>{scenario.steps.map((step, index) => {
               const finished = done || index < completed;
               const active = !typing && time >= SEND_END && index === completed && !done;
@@ -72,8 +69,7 @@ export default function AIWorkflowShowcase() {
             })}</ol>
             <div className={styles.resultSlot}><m.div animate={{ opacity: 1, y: done ? 0 : 3 }} transition={{ duration }} className={styles.result}><Icon size={24} aria-hidden="true" /><div><strong>{done ? scenario.result : "A little less work on your plate."}</strong><p>{done ? scenario.detail : "Watch one instruction become a finished workflow."}</p></div>{done && <Check size={18} aria-hidden="true" />}</m.div></div>
           </div>
-        </m.div>
-      </AnimatePresence>
+        </div>
       <p className={styles.showcaseNote}>Built around your tools and approval rules. You choose what AI can handle.</p>
     </figure>
   );

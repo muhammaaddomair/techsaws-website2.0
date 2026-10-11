@@ -53,7 +53,7 @@ export default function WhySection() {
     <section className={`surface-light section ${styles.section}`} aria-labelledby="why-heading">
       <div className="page-layout">
         <div className={styles.intro}>
-          <p className={styles.description}>{data.description}</p>
+          <p className={`${styles.description} max-md:hidden`}>{data.description}</p>
           <div className={styles.heading}>
             <p className={styles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
             <h2 id="why-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>

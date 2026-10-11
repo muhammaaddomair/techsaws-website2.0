@@ -1,16 +1,9 @@
-.canvasBlend {
-  position: relative;
-}
-
-/* Let the canvas emerge gradually from the hero's dark base. */
-.canvasBlend > div > div[aria-hidden="true"] {
-  mask-image: linear-gradient(to bottom, transparent, black clamp(8rem, 14vw, 14rem));
-}
 
 .section {
   padding-top: var(--section-space);
   padding-bottom: var(--section-space);
 }
+.section .introContainer { padding-top: 0; }
 
 /* Reserved for the process visual in the next iteration. */
 .processSpace {
@@ -69,3 +62,7 @@
 @keyframes queue-wait { 0%, 100% { opacity: .9; transform: translateY(0); } 45% { opacity: 1; transform: translateY(3px); } }
 @keyframes workload-grow { 0%, 100% { transform: scaleY(.7); } 55% { transform: scaleY(1); } }
 @keyframes cost-rise { 0%, 100% { stroke-dashoffset: 80; } 55% { stroke-dashoffset: 0; } }
+@media (width < 768px) {
+  .section { padding-top: 1rem; }
+  .section .introContainer { padding-top: 1rem; }
+}

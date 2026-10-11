@@ -108,7 +108,7 @@ export const processSectionData = {
 export const faqSectionData = {
   "eyebrow": "Frequently Asked Questions",
   "heading": "Questions? We've Got Answers.",
-  "description": "Everything you need to know before starting a project with TechSaws.",
+  "description": "Everything you need to know before starting a project with TechSaws. Explore how we work, what affects pricing and timelines, and how we connect with your existing systems and support you after launch.",
   "items": [
     {
       "question": "What exactly does TechSaws do?",

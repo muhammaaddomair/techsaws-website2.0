@@ -8,14 +8,12 @@ import HowItWorksSection from "@/components/sections/services/automation/how-it-
 import ProcessSection from "@/components/sections/home/process-section";
 import FAQSection from "@/components/sections/home/faq-section";
 import CTASection from "@/components/shared/sections/cta-section";
-import styles from "@/components/sections/services/automation/problem-section.module.css";
 
 function AIAutomationPage() {
   return (
     <main>
-      <AIAutomationHeroSection />
-      <div className={styles.canvasBlend}>
         <SectionCanvas surface="dark" layout="full">
+          <AIAutomationHeroSection />
           <ProblemSection />
           <SectionBoundary direction="dark-light" />
           <SolutionSection />
@@ -26,7 +24,6 @@ function AIAutomationPage() {
           <FAQSection />
           <CTASection />
         </SectionCanvas>
-      </div>
     </main>
   );
 }

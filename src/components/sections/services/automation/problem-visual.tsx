@@ -19,8 +19,8 @@ export default function ProblemVisual({ kind }: { kind: Kind }) {
     <svg viewBox="0 0 480 220" fill="none" className={styles.diagram}>
       {kind === "repetition" && <>
         <path d="M100 85H380V157H100V85" className={styles.route} />
-        <Node x={40} y={65} label="Enter data" /><Node x={180} y={65} label="Copy update" /><Node x={320} y={65} label="Repeat" />
         <circle r="4" className={styles.packet} />
+        <Node x={40} y={65} label="Enter data" /><Node x={180} y={65} label="Copy update" /><Node x={320} y={65} label="Repeat" />
         <text x="240" y="186" textAnchor="middle">The same work. Every day.</text>
       </>}
       {kind === "responses" && <>

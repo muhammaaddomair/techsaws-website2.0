@@ -85,7 +85,7 @@ export default function ServicesSection() {
         <div className={styles.intro}>
           <div className={styles.introCopy}>
             <h2 id="services-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
-            <p>{data.description}</p>
+            <p className="max-md:hidden">{data.description}</p>
           </div>
           <p className={styles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
         </div>

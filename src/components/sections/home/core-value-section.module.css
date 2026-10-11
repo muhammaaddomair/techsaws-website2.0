@@ -103,3 +103,10 @@
   .symbol { transition: none; }
   .card:hover .symbol { transform: none; }
 }
+
+@media (width < 768px) {
+  .section { padding-inline: 0; }
+  .intro { grid-template-columns: 1fr; }
+  .card { min-height: 27rem; padding: 1.5rem; }
+  .symbol { height: 8rem; width: 8rem; margin-block: 1.5rem; }
+}

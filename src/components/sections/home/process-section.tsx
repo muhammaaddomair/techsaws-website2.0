@@ -7,6 +7,7 @@ import { m as motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { processSectionData as data } from "@/data/pages/home-page-data";
 import styles from "./process-section.module.css";
+import MobileCardCarousel from "@/components/shared/mobile-card-carousel";
 
 export default function ProcessSection() {
   const reduced = useReducedMotion();
@@ -22,7 +23,7 @@ export default function ProcessSection() {
             <p className={styles.support}>{data.supportingText}</p>
           </div>
         </div>
-        <ol className={styles.steps} aria-label="How to start working with TechSaws">
+        <MobileCardCarousel ordered className={styles.steps} label="How to start working with TechSaws">
           {data.steps.map((step, index) => (
             <motion.li key={step.id} className={styles.card} initial={false}
               whileInView={reduced ? undefined : { opacity: [.75, 1], y: [18, 0] }} viewport={{ once: true, amount: .15 }} transition={{ duration: .7, delay: index * .08, ease: [.22, 1, .36, 1] }}>
@@ -36,7 +37,7 @@ export default function ProcessSection() {
               </div>
             </motion.li>
           ))}
-        </ol>
+        </MobileCardCarousel>
       </div>
     </section>
   );

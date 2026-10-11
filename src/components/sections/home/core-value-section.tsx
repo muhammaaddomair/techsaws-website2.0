@@ -1,6 +1,7 @@
 import { coreValuesSectionData } from "@/data/pages/home-page-data";
 import CoreValueSymbol from "./core-value-symbol";
 import styles from "./core-value-section.module.css";
+import MobileCardCarousel from "@/components/shared/mobile-card-carousel";
 
 function CoreValueSection() {
   return (
@@ -24,13 +25,13 @@ function CoreValueSection() {
           {coreValuesSectionData.heading}
         </h2>
       </div>
-      <div className="flex items-start border-l border-surface-border pl-5">
+      <div className="flex items-start border-l-[3px] border-white pl-5">
         <p className="max-w-md text-sm leading-7 text-surface-foreground">
           {coreValuesSectionData.description}
         </p>
       </div>
       </div>
-      <ul aria-label="The business value we deliver" className={styles.cards}>
+      <MobileCardCarousel label="The business value we deliver" className={styles.cards}>
         {coreValuesSectionData.values.map((value) => (
           <li key={value.id} className={styles.card} data-tone={value.tone}>
             <span className={styles.number}>{value.number}</span>
@@ -40,8 +41,8 @@ function CoreValueSection() {
             <p className={styles.service}>{value.service}</p>
           </li>
         ))}
-      </ul>
-      <p className="mt-8 max-w-3xl text-sm leading-7 text-surface-foreground">{coreValuesSectionData.deliveryNote}</p>
+      </MobileCardCarousel>
+      <p className="mt-8 max-w-3xl text-sm leading-7 text-surface-foreground max-md:hidden">{coreValuesSectionData.deliveryNote}</p>
     </section>
   );
 }

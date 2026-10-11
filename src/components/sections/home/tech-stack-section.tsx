@@ -13,7 +13,7 @@ function TechStackSection() {
           <h2 id="tech-stack-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
             {techStackSectionData.heading[0]}<br />{techStackSectionData.heading[1]}
           </h2>
-          <p className="mt-6 max-w-xl text-sm leading-6 text-surface-foreground">
+          <p className="mt-6 max-w-xl text-sm leading-6 text-surface-foreground max-md:hidden">
             {techStackSectionData.description}
           </p>
         </div>
