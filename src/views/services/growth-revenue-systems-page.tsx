@@ -1,3 +1,4 @@
+import GrowthHeroSection from "@/components/sections/services/growth/growth-hero-section";
 import ProblemSection from "@/components/sections/services/growth/problem-section";
 import SolutionSection from "@/components/sections/services/growth/solution-section";
 import BusinessOutcomesSection from "@/components/sections/services/growth/business-outcomes-section";
@@ -12,6 +13,7 @@ export default function GrowthRevenueSystemsPage() {
   return (
     <main>
       <SectionCanvas surface="dark" layout="full">
+        <GrowthHeroSection />
         <ProblemSection />
         <SectionBoundary direction="dark-light" />
         <SolutionSection />

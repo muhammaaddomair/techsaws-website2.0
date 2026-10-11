@@ -1,3 +1,4 @@
+import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import AIAutomationHeroSection from "@/components/sections/services/automation/ai-automation-hero-section";
 import ProblemSection from "@/components/sections/services/automation/problem-section";
 import SolutionSection from "@/components/sections/services/automation/solution-section";
@@ -20,9 +21,9 @@ function AIAutomationPage() {
           <BusinessOutcomesSection />
           <HowItWorksSection />
           <SectionBoundary direction="light-dark" />
-          <ProcessSection />
-          <FAQSection />
-          <CTASection />
+          <ProcessSection headingClassName={titleStyles.heading} />
+          <FAQSection headingClassName={titleStyles.heading} />
+          <CTASection headingClassName={`${titleStyles.heading} ${titleStyles.centered}`} />
         </SectionCanvas>
     </main>
   );

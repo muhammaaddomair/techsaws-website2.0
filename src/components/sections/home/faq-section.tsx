@@ -11,7 +11,7 @@ import { Plus } from "lucide-react";
 import { faqSectionData as data } from "@/data/pages/home-page-data";
 import styles from "./faq-section.module.css";
 
-export default function FAQSection() {
+export default function FAQSection({ headingClassName }: { headingClassName?: string } = {}) {
   const id = useId();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const reduceMotion = useReducedMotion();
@@ -21,7 +21,7 @@ export default function FAQSection() {
         <div className={styles.intro}>
           <div>
             <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
-            <h2 id="faq-heading" className="mt-4 font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl">{data.heading}</h2>
+            <h2 id="faq-heading" className={headingClassName ?? "mt-4 font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl"}>{data.heading}</h2>
           </div>
           <p className={styles.description}>{data.description}</p>
         </div>

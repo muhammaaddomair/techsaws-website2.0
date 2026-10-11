@@ -14,7 +14,7 @@ import { processSectionData as data } from "@/data/pages/home-page-data";
 import styles from "./process-section.module.css";
 import MobileCardCarousel from "@/components/shared/mobile-card-carousel";
 
-export default function ProcessSection() {
+export default function ProcessSection({ headingClassName }: { headingClassName?: string } = {}) {
   const reduced = useReducedMotion();
   return (
     <section className={`surface-dark section ${styles.section}`} aria-labelledby="process-heading">
@@ -22,7 +22,7 @@ export default function ProcessSection() {
         <div className={styles.intro}>
           <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
           <div>
-            <h2 id="process-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
+            <h2 id="process-heading" className={headingClassName ?? "font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl"}>{data.heading[0]}<br />{data.heading[1]}</h2>
             <p className={styles.description}>{data.description}</p>
             <Button asChild className="mt-5 min-h-11 gap-2 rounded-lg px-5 font-body"><ConnectLink href={data.href}>{data.buttonLabel}<ArrowUpRight aria-hidden="true" /></ConnectLink></Button>
             <p className={styles.support}>{data.supportingText}</p>

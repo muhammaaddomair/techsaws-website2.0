@@ -3,7 +3,7 @@
 .eyebrow { display: flex; align-items: center; gap: .75rem; font-size: .875rem; color: var(--surface-heading); }
 .eyebrow > span { display: flex; gap: 4px; }
 .eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
-.description { max-width: 31rem; padding-left: 1.5rem; border-left: 3px solid #fff; font-size: .875rem; line-height: 1.85; color: var(--surface-foreground); }
+.description { max-width: 31rem; padding-left: 1.5rem; border-left: 1px solid var(--surface-border); font-size: .875rem; line-height: 1.85; color: var(--surface-foreground); }
 .questions { margin: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 2vw, 1.5rem) 0; border-top: 1px solid var(--surface-border); }
 .item { border-bottom: 1px solid var(--surface-border); }
 .trigger { display: grid; grid-template-columns: 2rem 1fr 2rem; align-items: center; gap: 1rem; width: 100%; padding-block: 1.5rem; text-align: left; cursor: pointer; color: var(--surface-heading); font-size: clamp(.95rem, 1.3vw, 1.125rem); line-height: 1.5; transition: color 200ms ease; }

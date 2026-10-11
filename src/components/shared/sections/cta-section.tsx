@@ -10,6 +10,7 @@ import artwork from "../../../../public/images/cta-iridescent-ribbon.png";
 import styles from "./cta-section.module.css";
 
 type CTASectionProps = {
+  headingClassName?: string;
   heading?: string;
   description?: string;
   buttonLabel?: string;
@@ -17,6 +18,7 @@ type CTASectionProps = {
 };
 
 export default function CTASection({
+  headingClassName,
   heading = "Ready to build what’s next?",
   description = "Turn your next big idea into lasting impact. Let’s build smarter software, connected systems, and new possibilities for your business.",
   buttonLabel = "Let’s talk about your project",
@@ -42,7 +44,7 @@ export default function CTASection({
           </motion.div>
           <div aria-hidden="true" className={styles.topLight} />
           <div className={styles.content}>
-            <h2 id={headingId} className="text-balance font-heading text-3xl font-bold leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
+            <h2 id={headingId} className={headingClassName ?? "text-balance font-heading text-3xl font-bold leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl"}>
               {heading}
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-pretty font-body text-sm leading-7 text-surface-foreground sm:text-base">

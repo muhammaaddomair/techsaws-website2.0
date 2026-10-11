@@ -1,3 +1,4 @@
+import CybersecurityHeroSection from "@/components/sections/services/cybersecurity/cybersecurity-hero-section";
 import ProblemSection from "@/components/sections/services/cybersecurity/problem-section";
 import SolutionSection from "@/components/sections/services/cybersecurity/solution-section";
 import BusinessOutcomesSection from "@/components/sections/services/cybersecurity/business-outcomes-section";
@@ -12,6 +13,7 @@ export default function CybersecurityProtectionPage() {
   return (
     <main>
       <SectionCanvas surface="dark" layout="full">
+        <CybersecurityHeroSection />
         <ProblemSection />
         <SectionBoundary direction="dark-light" />
         <SolutionSection />
