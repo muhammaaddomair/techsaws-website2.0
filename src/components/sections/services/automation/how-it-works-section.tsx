@@ -9,16 +9,17 @@ import { useRef } from "react";
 import { m, useInView, useReducedMotion } from "framer-motion";
 import { aiAutomationPageData } from "@/data/pages/services/ai-automation-page-data";
 import styles from "@/components/sections/home/why-section.module.css";
-import AutomationSectionVisual from "./automation-section-visual";
+import ServiceProcessVisual from "@/components/shared/service-process-visual";
 
+const stages = ["Discover", "Design", "Build", "Launch"];
 const data = aiAutomationPageData.process;
 function ProcessCard({ item, index }: { item: (typeof data.items)[number]; index: number }) {
   const ref = useRef<HTMLElement>(null);
   const visible = useInView(ref, { margin: "0px 0px -40px 0px" });
   const reduced = useReducedMotion();
   return <m.article ref={ref} className={styles.reason} data-tone={item.tone} data-running={visible && !reduced} initial={false} whileInView={reduced ? undefined : { opacity: [.7, 1], y: [14, 0] }} transition={{ duration: .7, delay: index * .06 }} viewport={{ once: true, amount: .2 }}>
-    <div aria-hidden="true" className={styles.visual}><AutomationSectionVisual kind={item.id} labels={item.labels} /></div>
-    <div className={styles.copy}><span className={styles.number}>STEP {String(index + 1).padStart(2, "0")}</span><h3 className="font-heading">{item.title}</h3><p>{item.description}</p></div>
+    <div aria-hidden="true" className={styles.visual}><ServiceProcessVisual service="automation" step={index} labels={item.labels} /></div>
+    <div className={styles.copy}><span className={styles.number}>STEP {String(index + 1).padStart(2, "0")} / {stages[index]}</span><h3 className="font-heading">{item.title}</h3><p>{item.description}</p></div>
   </m.article>;
 }
 export default function HowItWorksSection() {

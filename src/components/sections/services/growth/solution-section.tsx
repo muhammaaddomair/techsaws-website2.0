@@ -1,0 +1,36 @@
+import SectionTitleDots from "@/components/shared/section-title-dots";
+import { growthRevenueSystemsPageData } from "@/data/pages/services/growth-revenue-systems-page-data";
+import headingStyles from "@/components/sections/home/why-section.module.css";
+import cardStyles from "@/components/sections/home/core-value-section.module.css";
+import ServiceSolutionSymbol from "@/components/shared/service-solution-symbol";
+import styles from "../automation/solution-section.module.css";
+import MobileCardCarousel from "@/components/shared/mobile-card-carousel";
+
+const data = growthRevenueSystemsPageData.solution;
+
+export default function SolutionSection() {
+  return (
+      <section className={`surface-light section ${styles.section}`} aria-labelledby="growth-solution-heading">
+        <div className="page-layout">
+          <div className={headingStyles.intro}>
+            <p className={`${headingStyles.description} max-md:hidden`}>{data.description}</p>
+            <div className={headingStyles.heading}>
+              <p className={headingStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
+              <h2 id="growth-solution-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
+            </div>
+          </div>
+          <MobileCardCarousel className={`${cardStyles.cards} ${styles.cards}`} label="growth solutions">
+            {data.items.map((item, index) => (
+              <li key={item.id} className={cardStyles.card} data-tone={item.tone}>
+                <span className={cardStyles.number}>{String(index + 1).padStart(2, "0")}</span>
+                <h3 className={`font-heading ${cardStyles.heading}`}>{item.title}</h3>
+                <div className={cardStyles.symbol}><ServiceSolutionSymbol service="growth" index={index} /></div>
+                <p className={cardStyles.description}>{item.description}</p>
+                <p className={cardStyles.service}>{item.detail}</p>
+              </li>
+            ))}
+          </MobileCardCarousel>
+        </div>
+      </section>
+  );
+}

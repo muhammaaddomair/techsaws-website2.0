@@ -1,0 +1,36 @@
+import SectionTitleDots from "@/components/shared/section-title-dots";
+import { cybersecurityProtectionPageData } from "@/data/pages/services/cybersecurity-protection-page-data";
+import introStyles from "@/components/sections/home/tech-stack-section.module.css";
+import styles from "../automation/problem-section.module.css";
+import ServiceProblemVisual from "@/components/shared/service-problem-visual";
+
+const data = cybersecurityProtectionPageData.problem;
+
+export default function ProblemSection() {
+  return (
+      <section aria-labelledby="cybersecurity-problem-heading" className={`surface-dark ${styles.section}`}>
+        <div className={`page-layout ${introStyles.section} ${styles.introContainer}`}>
+        <div className={introStyles.intro}>
+          <p className={introStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
+          <div>
+            <h2 id="cybersecurity-problem-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
+              {data.heading[0]}<br />{data.heading[1]}
+            </h2>
+            <p className="mt-6 max-w-xl text-sm leading-6 text-surface-foreground">{data.description}</p>
+          </div>
+        </div>
+        <div className={styles.grid}>
+          {data.items.map((item, index) => (
+            <article className={styles.card} key={item.id}>
+              <ServiceProblemVisual service="cybersecurity" index={index} labels={item.labels} caption={item.caption} />
+              <p className={styles.number}>{String(index + 1).padStart(2, "0")}</p>
+              <h3 className={styles.title}>{item.title}</h3>
+              <p className={styles.description}>{item.description}</p>
+              <p className={styles.solution}><span>How we help</span>{item.solution}</p>
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+  );
+}
