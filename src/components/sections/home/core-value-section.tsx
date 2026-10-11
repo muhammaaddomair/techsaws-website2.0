@@ -1,3 +1,4 @@
+import SectionTitleDots from "@/components/shared/section-title-dots";
 import { coreValuesSectionData } from "@/data/pages/home-page-data";
 import CoreValueSymbol from "./core-value-symbol";
 import styles from "./core-value-section.module.css";
@@ -12,10 +13,7 @@ function CoreValueSection() {
       <div className={styles.intro}>
       <div>
         <p className="flex items-center gap-3 text-sm text-surface-heading">
-          <span aria-hidden="true" className="flex gap-1">
-            <span className="size-1.5 rounded-full bg-primary" />
-            <span className="size-1.5 rounded-full bg-primary" />
-          </span>{" "}
+          <SectionTitleDots />{" "}
           {coreValuesSectionData.eyebrow}
         </p>
         <h2

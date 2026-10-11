@@ -1,3 +1,4 @@
+import SectionTitleDots from "@/components/shared/section-title-dots";
 import { aiAutomationPageData } from "@/data/pages/services/ai-automation-page-data";
 import introStyles from "@/components/sections/home/tech-stack-section.module.css";
 import styles from "./problem-section.module.css";
@@ -10,7 +11,7 @@ export default function ProblemSection() {
       <section aria-labelledby="ai-problem-heading" className={`surface-dark ${styles.section}`}>
         <div className={`page-layout ${introStyles.section} ${styles.introContainer}`}>
         <div className={introStyles.intro}>
-          <p className={introStyles.eyebrow}><span aria-hidden="true" className={introStyles.dots} />{data.eyebrow}</p>
+          <p className={introStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
           <div>
             <h2 id="ai-problem-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
               {data.heading[0]}<br />{data.heading[1]}

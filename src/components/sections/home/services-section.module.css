@@ -98,3 +98,13 @@
 
 
 
+
+.routeArrows path { animation: route-nudge 2.8s ease-in-out infinite; }
+@keyframes route-nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .routeArrows path { animation: none; } }
+
+.routeArrows path:nth-child(2) { animation-delay: -.7s; }
+.routeArrows path:nth-child(3) { animation-delay: -1.4s; }
+.routeArrows path:nth-child(4) { animation-delay: -2.1s; }
+.routeArrows path:nth-child(5) { animation-delay: -.35s; }
+.routeArrows path:nth-child(6) { animation-delay: -1.05s; }

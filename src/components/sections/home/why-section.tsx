@@ -1,4 +1,7 @@
-﻿"use client";
+"use client";
+
+import SectionTitleDots from "@/components/shared/section-title-dots";
+
 
 import { useRef } from "react";
 import { Check, CircleHelp, Layers3, Users, Workflow, Wrench, ArrowUpRight } from "lucide-react";
@@ -55,12 +58,12 @@ export default function WhySection() {
         <div className={styles.intro}>
           <p className={`${styles.description} max-md:hidden`}>{data.description}</p>
           <div className={styles.heading}>
-            <p className={styles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
+            <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
             <h2 id="why-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
           </div>
         </div>
         <div className={styles.flow}>
-          <svg aria-hidden="true" className={styles.route} viewBox="0 0 1200 960" preserveAspectRatio="none" fill="none"><path d="M65 18H1135Q1182 18 1182 65V433Q1182 480 1135 480Q1182 480 1182 527V895Q1182 942 1135 942H65Q18 942 18 895V527Q18 480 65 480Q18 480 18 433V65Q18 18 65 18Z" /><path d="m280 10 8 8-8 8m630-16 8 8-8 8M288 934l-8 8 8 8m630-16-8 8 8 8" /></svg>
+          <svg aria-hidden="true" className={styles.route} viewBox="0 0 1200 960" preserveAspectRatio="none" fill="none"><path d="M65 18H1135Q1182 18 1182 65V433Q1182 480 1135 480Q1182 480 1182 527V895Q1182 942 1135 942H65Q18 942 18 895V527Q18 480 65 480Q18 480 18 433V65Q18 18 65 18Z" /><g className={styles.routeArrows}><path d="M280 10l8 8-8 8" /><path d="M918 10l8 8-8 8" /><path d="M288 934l-8 8 8 8" /><path d="M918 934l-8 8 8 8" /></g></svg>
           <div className={styles.grid}>{data.reasons.map((reason, index) => <ReasonCard key={reason.id} reason={reason} index={index} />)}</div>
         </div>
       </div>

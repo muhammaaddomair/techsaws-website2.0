@@ -1,5 +1,10 @@
 "use client";
 
+import SectionTitleDots from "@/components/shared/section-title-dots";
+
+
+
+
 import { useId, useState } from "react";
 import { AnimatePresence, m as motion, useReducedMotion } from "framer-motion";
 import { Plus } from "lucide-react";
@@ -15,7 +20,7 @@ export default function FAQSection() {
       <div className="page-layout">
         <div className={styles.intro}>
           <div>
-            <p className={styles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
+            <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
             <h2 id="faq-heading" className="mt-4 font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl">{data.heading}</h2>
           </div>
           <p className={styles.description}>{data.description}</p>

@@ -10,7 +10,7 @@
 .route path:first-child { stroke-dasharray: 4 5; vector-effect: non-scaling-stroke; }
 .route { opacity: 1; }
 .route path:first-child { opacity: .55; }
-.route path:last-child {
+.routeArrows path {
   stroke: var(--primary);
   stroke-width: 3;
   stroke-linecap: round;
@@ -71,3 +71,13 @@
 @media (width < 768px) { .intro { grid-template-columns: 1fr; gap: 1.5rem; } .heading { grid-row: 1; padding-left: 0; border-left: 0; } .description { padding-top: 0; max-width: 34rem; } .route { display: none; } .flow { padding: 0 clamp(1rem, 2vw, 1.5rem); } .grid { gap: 3rem; } .visual { padding: 1rem; } }
 @media (max-width: 639px) { .grid { grid-template-columns: 1fr; } .visual { height: 15rem; } .systemNodes { gap: .4rem; } .systemNodes > div { font-size: .6rem; } .copy { padding-top: 1.25rem; } }
 @media (prefers-reduced-motion: reduce) { .reason *, .reason *::after { animation: none !important; transition: none !important; } }
+
+.routeArrows path { animation: route-nudge 2.8s ease-in-out infinite; }
+@keyframes route-nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@media (prefers-reduced-motion: reduce) { .routeArrows path { animation: none; } }
+
+.routeArrows path:nth-child(2) { animation-delay: -.7s; }
+.routeArrows path:nth-child(3) { animation-delay: -1.4s; }
+.routeArrows path:nth-child(4) { animation-delay: -2.1s; }
+.routeArrows path:nth-child(5) { animation-delay: -.35s; }
+.routeArrows path:nth-child(6) { animation-delay: -1.05s; }

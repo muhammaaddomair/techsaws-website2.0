@@ -1,4 +1,7 @@
-﻿"use client";
+"use client";
+
+import SectionTitleDots from "@/components/shared/section-title-dots";
+
 
 import { useRef } from "react";
 import Link from "next/link";
@@ -87,13 +90,13 @@ export default function ServicesSection() {
             <h2 id="services-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
             <p className="max-md:hidden">{data.description}</p>
           </div>
-          <p className={styles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
+          <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
         </div>
         <div className={styles.flow}>
           <svg aria-hidden="true" className={styles.route} viewBox="0 0 1200 1080" preserveAspectRatio="none" fill="none">
             <path className={styles.dashedRoute} d="M70 18H1130Q1182 18 1182 70V486Q1182 540 1130 540Q1182 540 1182 594V1010Q1182 1062 1130 1062H70Q18 1062 18 1010V594Q18 540 70 540Q18 540 18 486V70Q18 18 70 18Z" />
             <path ref={route} pathLength="1" className={styles.drawRoute} d="M70 18H1130Q1182 18 1182 70V486Q1182 540 1130 540Q1182 540 1182 594V1010Q1182 1062 1130 1062H70Q18 1062 18 1010V594Q18 540 70 540Q18 540 18 486V70Q18 18 70 18Z" />
-            <g className={styles.routeArrows}><path d="m180 10 8 8-8 8m410-16 8 8-8 8m410-16 8 8-8 8M188 1054l-8 8 8 8m410-16-8 8 8 8m410-16-8 8 8 8" /></g>
+            <g className={styles.routeArrows}><path d="M180 10l8 8-8 8" /><path d="M598 10l8 8-8 8" /><path d="M1016 10l8 8-8 8" /><path d="M188 1054l-8 8 8 8" /><path d="M598 1054l-8 8 8 8" /><path d="M1008 1054l-8 8 8 8" /></g>
           </svg>
           <div className={styles.bento}>{data.services.map((service, index) => <ServiceCard key={service.id} service={service} index={index} />)}</div>
         </div>

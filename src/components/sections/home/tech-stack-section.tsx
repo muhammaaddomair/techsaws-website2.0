@@ -1,3 +1,4 @@
+import SectionTitleDots from "@/components/shared/section-title-dots";
 import Image from "next/image";
 import { techStackSectionData } from "@/data/pages/home-page-data";
 import styles from "./tech-stack-section.module.css";
@@ -8,7 +9,7 @@ function TechStackSection() {
   return (
     <section aria-labelledby="tech-stack-heading" className={styles.section}>
       <div className={styles.intro}>
-        <p className={styles.eyebrow}><span aria-hidden="true" className={styles.dots} /> {techStackSectionData.eyebrow}</p>
+        <p className={styles.eyebrow}><SectionTitleDots /> {techStackSectionData.eyebrow}</p>
         <div>
           <h2 id="tech-stack-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">
             {techStackSectionData.heading[0]}<br />{techStackSectionData.heading[1]}

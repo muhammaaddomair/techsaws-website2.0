@@ -1,3 +1,4 @@
+import SectionTitleDots from "@/components/shared/section-title-dots";
 import { aiAutomationPageData } from "@/data/pages/services/ai-automation-page-data";
 import headingStyles from "@/components/sections/home/why-section.module.css";
 import cardStyles from "@/components/sections/home/core-value-section.module.css";
@@ -14,7 +15,7 @@ export default function SolutionSection() {
           <div className={headingStyles.intro}>
             <p className={`${headingStyles.description} max-md:hidden`}>{data.description}</p>
             <div className={headingStyles.heading}>
-              <p className={headingStyles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
+              <p className={headingStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
               <h2 id="ai-solution-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
             </div>
           </div>

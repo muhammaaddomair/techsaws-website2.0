@@ -61,7 +61,7 @@ export default function AIWorkflowShowcase() {
           </div>
           <div className={styles.connector} aria-hidden="true"><span className={styles.signalLine} /><span className={styles.connectorNode}><Workflow size={24} strokeWidth={2.5} /></span><span className={styles.signalLine} /></div>
           <div className={styles.liveExecution} data-state={done ? "complete" : typing ? "ready" : "working"}>
-            <div className={styles.executionHeading}><span className={styles.assistantIcon}><Sparkles size={18} /></span><div><strong>{done ? "Handled. You're in control." : typing ? "Ready when you are" : "Taking care of the details"}</strong><p>{done ? "Across your connected tools" : "Your tools, working together"}</p></div></div>
+            <div className={styles.executionHeading}><div><strong>{done ? "Handled. You're in control." : typing ? "Ready when you are" : "Taking care of the details"}</strong><p>{done ? "Across your connected tools" : "Your tools, working together"}</p></div></div>
             <ol className={styles.liveTasks}>{scenario.steps.map((step, index) => {
               const finished = done || index < completed;
               const active = !typing && time >= SEND_END && index === completed && !done;

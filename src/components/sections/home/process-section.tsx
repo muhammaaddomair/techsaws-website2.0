@@ -1,5 +1,10 @@
 "use client";
 
+import SectionTitleDots from "@/components/shared/section-title-dots";
+
+
+
+
 import Image from "next/image";
 import ConnectLink from "@/components/shared/connect-link";
 import { ArrowUpRight } from "lucide-react";
@@ -15,7 +20,7 @@ export default function ProcessSection() {
     <section className={`surface-dark section ${styles.section}`} aria-labelledby="process-heading">
       <div className="page-layout">
         <div className={styles.intro}>
-          <p className={styles.eyebrow}><span aria-hidden="true"><i /><i /></span>{data.eyebrow}</p>
+          <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
           <div>
             <h2 id="process-heading" className="font-heading text-3xl font-medium leading-[1.12] tracking-tight text-surface-heading sm:text-4xl lg:text-5xl">{data.heading[0]}<br />{data.heading[1]}</h2>
             <p className={styles.description}>{data.description}</p>
