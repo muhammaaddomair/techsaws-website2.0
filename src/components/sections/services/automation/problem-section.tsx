@@ -10,7 +10,7 @@ const data = aiAutomationPageData.problem;
 export default function ProblemSection() {
   return (
       <section aria-labelledby="ai-problem-heading" className={`surface-dark ${styles.section}`}>
-        <div className={`page-layout ${introStyles.section} ${styles.introContainer}`}>
+        <div className="page-layout">
         <div className={introStyles.intro}>
           <p className={introStyles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
           <div>

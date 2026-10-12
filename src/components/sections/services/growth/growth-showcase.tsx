@@ -21,8 +21,17 @@ export default function GrowthShowcase() {
   const [selected, setSelected] = useState(0);
   const example = examples[selected];
   return <figure ref={ref} className={styles.showcase} data-running={visible && !sequence.paused} aria-label="Illustrative lead-to-sales journey">
-    <div className={styles.tabs} aria-label="Choose a customer journey">{examples.map((item, index) => <button type="button" key={item.label} aria-pressed={selected === index} onClick={() => { setSelected(index); sequence.reset(); }}>{item.label}</button>)}</div>
-    <div className={styles.panel}><div className={growthStyles.chrome} aria-hidden="true"><div className={growthStyles.chromeTabs}><span className={growthStyles.lights}><i /><i /><i /></span><span className={growthStyles.chromeTab}><Target size={13} />Sales workspace<X size={12} /></span><Plus size={14} /></div><div className={growthStyles.navigation}><ArrowLeft size={15} /><ArrowRight size={15} /><RotateCw size={14} /><span className={growthStyles.address}><LockKeyhole size={12} />Your connected sales pipeline<Star size={13} /></span><MoreVertical size={15} /></div></div>
+    <div className={styles.panel}>
+      <div className={growthStyles.chrome}>
+        <div className={growthStyles.chromeTabs}>
+          <span className={growthStyles.lights} aria-hidden="true"><i /><i /><i /></span>
+          <div className={growthStyles.tabList} role="group" aria-label="Choose a customer journey">
+            {examples.map((item, index) => <button className={growthStyles.chromeTab} type="button" key={item.label} aria-pressed={selected === index} onClick={() => { setSelected(index); sequence.reset(); }}><Target size={13} aria-hidden="true" /><span>{item.label}</span><X size={12} aria-hidden="true" /></button>)}
+          </div>
+          <Plus size={14} aria-hidden="true" className={growthStyles.newTab} />
+        </div>
+        <div className={growthStyles.navigation} aria-hidden="true"><ArrowLeft size={15} /><ArrowRight size={15} /><RotateCw size={14} /><span className={growthStyles.address}><LockKeyhole size={12} />Your connected sales pipeline<Star size={13} /></span><MoreVertical size={15} /></div>
+      </div>
       <div className={styles.body}><p className={styles.kicker}>MAKE EVERY NEXT STEP CLEAR</p><h2>{example.title}</h2><p className={styles.intro}>See how a connected process helps your team respond, follow up, and focus on the right opportunities.</p>
       <div className={styles.leadCard}><span className={styles.avatar}><Users size={18} aria-hidden="true" /></span><div><strong>{example.lead}</strong><small>{example.detail}</small></div></div>
       <div className={`${styles.flow} ${growthStyles.flow}`} aria-hidden="true">{["Discover", "Engage", "Convert"].map((label, index) => <span key={label} data-on={sequence.phase >= index}>{label}</span>)}</div>

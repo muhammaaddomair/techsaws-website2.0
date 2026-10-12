@@ -41,3 +41,13 @@
 .intro .benefitPanel strong { font-size: .8rem; }
 .intro .benefitPanel li p { margin-top: .3rem; font-size: .75rem; line-height: 1.7; }
 @media (width < 1024px) { .intro { grid-template-columns: 1fr; } .intro .benefitPanel { border-left: 0; padding: 1.5rem 0 0; border-top: 1px solid #a78bfa40; } }
+
+.tabList { display: flex; gap: .25rem; min-width: 0; overflow-x: auto; }
+.browserTab { flex-shrink: 0; min-width: 0; min-height: 40px; border: 0; background: transparent; color: inherit; cursor: pointer; transition: background 180ms ease; }
+.browserTab[aria-pressed="true"] { background: #fff; }
+.browserTab:hover { background: #ffffff80; }
+.browserTab[aria-pressed="true"]:hover { background: #fff; }
+.browserTab:focus-visible { outline: 2px solid #7c3aed; outline-offset: -3px; }
+.newTab { flex-shrink: 0; }
+@media (width < 768px) { .browserTab { min-width: 0; } }
+@media (prefers-reduced-motion: reduce) { .browserTab { transition: none; } }

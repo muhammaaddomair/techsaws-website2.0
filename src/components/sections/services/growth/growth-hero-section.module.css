@@ -16,3 +16,13 @@
 .address { display: flex; align-items: center; gap: .5rem; background: #f1f3f4; border-radius: 999px; flex: 1; min-width: 0; padding: .45rem .75rem; font-size: .65rem; color: #3c4043; }
 .address > svg:last-child { margin-left: auto; }
 @media (width < 768px) { .navigation { gap: .4rem; } .address { font-size: .6rem; } }
+
+.tabList { display: flex; gap: .25rem; min-width: 0; overflow-x: auto; }
+.chromeTab { border: 0; min-height: 40px; background: transparent; cursor: pointer; flex-shrink: 0; transition: background 180ms ease; }
+.chromeTab[aria-pressed="true"] { background: #fff; }
+.chromeTab:hover { background: #ffffff80; }
+.chromeTab[aria-pressed="true"]:hover { background: #fff; }
+.chromeTab:focus-visible { outline: 2px solid #047857; outline-offset: -3px; }
+.newTab { flex-shrink: 0; }
+@media (width < 768px) { .chromeTabs { gap: .5rem; } .chromeTab { padding-inline: .65rem; } .chromeTab svg:last-child { margin-left: .25rem; } }
+@media (prefers-reduced-motion: reduce) { .chromeTab { transition: none; } }
