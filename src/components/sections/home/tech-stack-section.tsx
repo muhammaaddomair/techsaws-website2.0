@@ -10,7 +10,9 @@ function TechStackSection() {
   return (
     <section aria-labelledby="tech-stack-heading" className={styles.section}>
       <div className={styles.intro}>
-        <p className={styles.eyebrow}><SectionTitleDots /> {techStackSectionData.eyebrow}</p>
+        <div>
+          <p className={styles.eyebrow}><SectionTitleDots /> {techStackSectionData.eyebrow}</p>
+        </div>
         <div>
           <h2 id="tech-stack-heading" className={titleStyles.heading}>
             {techStackSectionData.heading[0]}<br />{techStackSectionData.heading[1]}

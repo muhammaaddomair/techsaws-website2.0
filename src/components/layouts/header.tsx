@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Menu, Lightbulb } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 
@@ -13,6 +13,7 @@ import { useHeaderSurface } from "@/hooks/use-header-surface";
 
 import dynamic from "next/dynamic";
 import SurfaceTooltip from "./surface-tooltip";
+import styles from "./header.module.css";
 import { ServicesDropdown } from "./services-dropdown";
 
 import ConnectLink from "@/components/shared/connect-link";
@@ -84,7 +85,7 @@ export default function Header() {
                 >
                   {item.title}
                   {isActive && (
-                    <span className="absolute left-3.5 right-3.5 bottom-2 h-px bg-primary" />
+                    <span className="absolute left-3.5 right-3.5 bottom-2 h-[3px] rounded-full bg-primary" />
                   )}
                 </Link>
               );
@@ -93,11 +94,13 @@ export default function Header() {
             <ConnectLink
               className="group relative ml-3 flex items-center gap-3 rounded-lg bg-black px-4 py-3.5 text-sm font-body font-light text-white transition-transform duration-300 hover:scale-[1.02] tracking-wide"
             >
+              <span className={styles.shine} aria-hidden="true" />
               Get Started
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-black">
                 <ArrowRight size={12} />
               </div>
-              <SurfaceTooltip className="right-0 top-full mt-5">
+              <SurfaceTooltip inverse className={`right-0 top-full mt-5 ${styles.tooltip}`}>
+                <span className={styles.ideaGlow} aria-hidden="true"><Lightbulb size={24} fill="currentColor" className={styles.ideaIcon} /></span>
                 Have a project in mind?
               </SurfaceTooltip>
             </ConnectLink>

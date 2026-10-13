@@ -13,18 +13,18 @@ import CTASection from "@/components/shared/sections/cta-section";
 function AIAutomationPage() {
   return (
     <main>
-        <SectionCanvas surface="dark" layout="full">
-          <AIAutomationHeroSection />
-          <ProblemSection />
-          <SectionBoundary direction="dark-light" />
-          <SolutionSection />
-          <BusinessOutcomesSection />
-          <HowItWorksSection />
-          <SectionBoundary direction="light-dark" />
-          <ProcessSection headingClassName={titleStyles.heading} />
-          <FAQSection headingClassName={titleStyles.heading} />
-          <CTASection />
-        </SectionCanvas>
+      <SectionCanvas surface="dark" layout="full">
+        <AIAutomationHeroSection />
+        <ProblemSection />
+        <SectionBoundary direction="dark-light" />
+        <SolutionSection />
+        <BusinessOutcomesSection />
+        <HowItWorksSection />
+        <SectionBoundary direction="light-dark" />
+        <ProcessSection headingClassName={titleStyles.heading} />
+        <FAQSection headingClassName={titleStyles.heading} />
+        <CTASection panelSurface="light" />
+      </SectionCanvas>
     </main>
   );
 }

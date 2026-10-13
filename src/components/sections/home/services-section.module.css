@@ -108,3 +108,11 @@
 .routeArrows path:nth-child(4) { animation-delay: -2.1s; }
 .routeArrows path:nth-child(5) { animation-delay: -.35s; }
 .routeArrows path:nth-child(6) { animation-delay: -1.05s; }
+
+.serviceNavigation { grid-column: 2; grid-row: 1; justify-self: end; }
+.serviceLinks { display: grid; gap: .35rem; list-style: none; padding: 0; margin-top: 1.25rem; }
+.serviceLinks li { display: flex; align-items: center; gap: .75rem; }
+.serviceLinks li::before { content: ""; width: 5px; height: 5px; flex-shrink: 0; border-radius: 50%; background: var(--primary); }
+.serviceLinks .serviceTextLink { margin-top: 0; color: var(--surface-heading); }
+.serviceTextLink > span::after { background: var(--primary); }
+@media (width < 768px) { .serviceNavigation { grid-column: 1; grid-row: auto; justify-self: start; } }

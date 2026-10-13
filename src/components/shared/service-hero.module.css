@@ -50,3 +50,8 @@
 .widePreview { width: 100%; max-width: none; }
 @media (width < 1024px) { .intro { grid-template-columns: 1fr; } .promise { border-left: 0; padding: 1.5rem 0 0; border-top: 1px solid rgba(var(--hero-rgb), .25); } .promise ul { grid-template-columns: repeat(3, 1fr); } .promise h2 br { display: none; } }
 @media (width < 768px) { .hero { padding-top: 10.5rem; } .intro .heading { font-size: clamp(2.4rem, 9vw, 3.8rem); } .promise ul { grid-template-columns: 1fr; } .widePreview { margin-top: 2.5rem; } }
+
+.secondary { text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.secondary > svg { animation: service-arrow-drift 3.6s ease-in-out infinite; }
+@keyframes service-arrow-drift { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .secondary > svg { animation: none; } }

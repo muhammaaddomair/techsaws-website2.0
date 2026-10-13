@@ -1,15 +1,21 @@
 "use client";
 
+import type { CSSProperties } from "react";
+import shineStyles from "@/components/layouts/header.module.css";
+
 import { useId, useRef } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { m as motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import ROITooltip from "@/components/shared/roi-tooltip";
 import ConnectLink from "@/components/shared/connect-link";
 import { Button } from "@/components/ui/button";
 import artwork from "../../../../public/images/cta-iridescent-ribbon.png";
 import styles from "./cta-section.module.css";
 
 type CTASectionProps = {
+  surface?: "dark" | "light";
+  panelSurface?: "dark" | "light";
   headingClassName?: string;
   heading?: string;
   description?: string;
@@ -18,6 +24,8 @@ type CTASectionProps = {
 };
 
 export default function CTASection({
+  surface,
+  panelSurface = "dark",
   headingClassName,
   heading = "Ready to build what’s next?",
   description = "Turn your next big idea into lasting impact. Let’s build smarter software, connected systems, and new possibilities for your business.",
@@ -32,9 +40,9 @@ export default function CTASection({
   const smoothOffset = useSpring(artworkOffset, { stiffness: 35, damping: 25, mass: 1.5 });
 
   return (
-    <section ref={sectionRef} aria-labelledby={headingId} className={`surface-dark ${styles.section}`}>
+    <section ref={sectionRef} aria-labelledby={headingId} className={`${surface ? `surface-${surface}` : ""} ${styles.section}`}>
       <div className="page-layout">
-        <div className={styles.panel}>
+        <div className={`surface-${panelSurface} ${styles.panel}`}>
           <motion.div aria-hidden="true" className={styles.artwork} style={{ y: reduceMotion ? 0 : smoothOffset }}>
             {[styles.ribbonLeft, styles.ribbonRight].map((placement) => (
               <div key={placement} className={`${styles.ribbon} ${placement}`}>
@@ -50,10 +58,11 @@ export default function CTASection({
             <p className="mx-auto mt-5 max-w-xl text-pretty font-body text-sm leading-7 text-surface-foreground sm:text-base">
               {description}
             </p>
-            <Button asChild className={`mt-8 h-auto min-h-12 max-w-full gap-3 whitespace-normal rounded-xl px-6 py-3.5 font-body text-sm font-semibold text-primary-foreground hover:bg-primary-hover sm:text-base ${styles.button}`}>
-              <ConnectLink href={href}>
+            <Button asChild className={`group relative mt-8 h-auto min-h-12 max-w-full gap-3 whitespace-normal rounded-xl px-6 py-3.5 font-body text-sm font-semibold text-primary-foreground hover:bg-primary-hover sm:text-base ${styles.button}`}>
+              <ConnectLink href={href}><span aria-hidden="true" className={shineStyles.shine} style={{ "--shine-duration": "7.6s", "--shine-delay": "-4.7s" } as CSSProperties} />
                 {buttonLabel}
                 <ArrowUpRight aria-hidden="true" className="size-5 transition-transform duration-300 motion-safe:group-hover/button:-translate-y-0.5 motion-safe:group-hover/button:translate-x-0.5" />
+                <ROITooltip surface="dark" centered icon="launch" text="Turn your next idea into measurable value." />
               </ConnectLink>
             </Button>
           </div>

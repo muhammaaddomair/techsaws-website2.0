@@ -110,3 +110,24 @@
   .card { min-height: 27rem; padding: 1.5rem; }
   .symbol { height: 8rem; width: 8rem; margin-block: 1.5rem; }
 }
+
+.goalsButton > .buttonArrow { transition: transform 650ms ease; }
+.goalsButton:hover > .buttonArrow, .goalsButton:focus-visible > .buttonArrow { transform: translate(3px, -3px); }
+.roiIcon { display: inline-flex; flex-shrink: 0; width: 16px; height: 16px; color: #15803d; animation: roi-motion 2.8s ease-in-out infinite; animation-play-state: paused; }
+.roiIcon[data-icon="goals"] { color: #dc2626; }
+.roiIcon[data-icon="plan"] { color: #0070f3; }
+.roiIcon[data-icon="launch"] { color: #7c3aed; }
+:global(.group:hover) .roiIcon, :global(.group:focus-visible) .roiIcon { animation-play-state: running; }
+@keyframes roi-motion { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-2px) rotate(3deg); } }
+.roiTooltip.roiTooltip { z-index: 10; width: max-content; max-width: min(24rem, calc(100vw - 3rem)); white-space: normal; padding: .5rem .65rem; font-size: .65rem; gap: .45rem; line-height: 1.4; border-radius: .6rem; text-align: left; }
+@media (prefers-reduced-motion: reduce) { .goalsButton > .buttonArrow { transition: none; } .roiIcon { animation: none; } }
+
+.goalsButton { transition: transform 650ms ease; }
+.goalsButton:hover, .goalsButton:focus-visible { transform: translateY(-2px) scale(1.02); }
+@media (prefers-reduced-motion: reduce) { .goalsButton { transition: none; } .goalsButton:hover, .goalsButton:focus-visible { transform: none; } }
+
+.roiIcon[data-icon="workflow"] { color: #0891b2; }
+.roiIcon[data-icon="automation"] { color: #7c3aed; }
+
+.roiIcon[data-icon="shield"] { color: #dc2626; }
+.roiIcon[data-icon="search"] { color: #ea580c; }

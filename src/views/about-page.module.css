@@ -1,0 +1,2 @@
+.intro > section { padding-top: clamp(10rem, 14vw, 13rem); }
+@media (width < 640px) { .intro > section { padding-top: 9rem; } }

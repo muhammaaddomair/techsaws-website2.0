@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import FooterNavLink from "./footer-nav-link";
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -65,16 +65,7 @@ function Footer() {
               <ul className="space-y-3">
                 {category.links.map((item) => (
                   <li key={item.path}>
-                    <Link
-                      href={item.path}
-                      className="group inline-flex items-center gap-1.5 font-body text-sm font-medium leading-5 text-surface-foreground hover:text-surface-heading"
-                    >
-                      {item.title}
-                      <ArrowUpRight
-                        aria-hidden="true"
-                        className="h-3.5 w-3.5 opacity-0 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
-                      />
-                    </Link>
+                    <FooterNavLink href={item.path} label={item.title} />
                   </li>
                 ))}
               </ul>

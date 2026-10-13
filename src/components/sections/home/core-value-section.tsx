@@ -1,9 +1,15 @@
+import type { CSSProperties } from "react";
+import shineStyles from "@/components/layouts/header.module.css";
 import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 import SectionTitleDots from "@/components/shared/section-title-dots";
 import { coreValuesSectionData } from "@/data/pages/home-page-data";
 import CoreValueSymbol from "./core-value-symbol";
 import styles from "./core-value-section.module.css";
 import MobileCardCarousel from "@/components/shared/mobile-card-carousel";
+import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import ROITooltip from "@/components/shared/roi-tooltip";
+import ConnectLink from "@/components/shared/connect-link";
 
 function CoreValueSection() {
   return (
@@ -24,10 +30,13 @@ function CoreValueSection() {
           {coreValuesSectionData.heading}
         </h2>
       </div>
-      <div className="flex items-start border-l border-surface-border pl-5">
+      <div className="flex flex-col items-start border-l border-surface-border pl-5">
         <p className="max-w-md text-sm leading-7 text-surface-foreground">
           {coreValuesSectionData.description}
         </p>
+        <Button asChild className={`group relative mt-5 min-h-11 gap-2 rounded-lg px-5 font-body ${styles.goalsButton}`}>
+          <ConnectLink href="/connect"><span aria-hidden="true" className={shineStyles.shine} style={{ "--shine-duration": "6.7s", "--shine-delay": "-1.2s" } as CSSProperties} />Discuss Your Business Goals<ArrowUpRight className={styles.buttonArrow} aria-hidden="true" /><ROITooltip text="Find opportunities for better ROI." /></ConnectLink>
+        </Button>
       </div>
       </div>
       <MobileCardCarousel label="The business value we deliver" className={styles.cards}>

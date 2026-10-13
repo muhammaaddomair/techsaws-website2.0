@@ -15,6 +15,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesSectionData as data } from "@/data/pages/home-page-data";
 import styles from "./services-section.module.css";
+import linkStyles from "./tech-stack-section.module.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -93,7 +94,7 @@ export default function ServicesSection() {
             <h2 id="services-heading" className={titleStyles.heading}>{data.heading[0]}<br />{data.heading[1]}</h2>
             <p className="max-md:hidden">{data.description}</p>
           </div>
-          <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
+          <div className={styles.serviceNavigation}><p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p><ul className={styles.serviceLinks} aria-label="Explore our services">{data.services.map((service) => <li key={service.id}><Link href={service.href} className={`${linkStyles.capabilitiesLink} ${styles.serviceTextLink}`}><span>{service.title}</span><ArrowUpRight size={16} aria-hidden="true" /></Link></li>)}</ul></div>
         </div>
         <div className={styles.flow}>
           <svg aria-hidden="true" className={styles.route} viewBox="0 0 1200 1080" preserveAspectRatio="none" fill="none">

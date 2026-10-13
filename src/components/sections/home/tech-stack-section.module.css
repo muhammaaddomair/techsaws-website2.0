@@ -115,3 +115,17 @@
 @media (prefers-reduced-motion: reduce) {
   .card:hover .logo { animation: none; }
 }
+
+.capabilitiesLink { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; margin-top: 1.25rem; font-size: .875rem; color: #fff; }
+.capabilitiesLink > span { position: relative; }
+.capabilitiesLink > span::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; border-radius: 999px; background: var(--primary); }
+.capabilitiesLink > svg { color: var(--primary); transition: transform 650ms ease, color 650ms ease; }
+.capabilitiesLink:hover > span::after, .capabilitiesLink:focus-visible > span::after { background: var(--primary); transform: none; }
+.capabilitiesLink:hover > svg, .capabilitiesLink:focus-visible > svg { color: var(--primary); transform: translateX(4px); }
+.capabilitiesLink:focus-visible { outline: 2px solid var(--primary); outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) { .capabilitiesLink > svg, .capabilitiesLink > span::after { transition: none; transform: none; } }
+
+.technologyLinks { display: grid; gap: .35rem; list-style: none; padding: 0; margin-top: 1.25rem; }
+.technologyLinks li { display: flex; align-items: center; gap: .75rem; }
+.technologyLinks li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; background: var(--primary); }
+.technologyLinks .capabilitiesLink { margin-top: 0; }

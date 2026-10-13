@@ -1,20 +1,22 @@
 .section { position: relative; }
-.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-inline: clamp(1rem, 2vw, 1.5rem); margin-bottom: clamp(2.5rem, 4vw, 4rem); }
+.intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: clamp(2.5rem, 4vw, 4rem); }
 .eyebrow { display: flex; align-items: center; align-self: start; gap: .75rem; color: var(--surface-heading); font-size: .875rem; }
 .eyebrow > span { display: flex; gap: 4px; }
 .eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
 .description { margin-top: 1.5rem; max-width: 32rem; color: var(--surface-foreground); font-size: .875rem; line-height: 1.85; }
 .support { margin-top: 1rem; max-width: 28rem; font-size: .75rem; line-height: 1.7; color: var(--surface-foreground); }
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.8rem, 1.5vw, 1.25rem); list-style: none; margin: 0; padding: 0 clamp(1rem, 2vw, 1.5rem); }
-.card { position: relative; isolation: isolate; display: flex; flex-direction: column; min-width: 0; min-height: 32rem; overflow: hidden; background: #11121a; border: 1px solid #ffffff16; border-radius: 1rem; transition: border-color 400ms ease; }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.8rem, 1.5vw, 1.25rem); list-style: none; margin: 0; padding: 0; }
+.card { position: relative; isolation: isolate; display: flex; flex-direction: column; min-width: 0; min-height: 32rem; overflow: hidden; background: var(--surface); border: 0; border-radius: 1rem; }
 .copy { position: relative; z-index: 1; padding: clamp(1.4rem, 2vw, 2rem); }
-.number { color: #b5a5ce; font-size: .65rem; letter-spacing: .13em; margin-bottom: 1.2rem; }
-.copy h3 { font-size: clamp(1.25rem, 1.7vw, 1.75rem); font-weight: 500; color: var(--surface-heading); line-height: 1.22; letter-spacing: -.03em; }
-.cardDescription { margin-top: 1rem; color: #b4b6c5; font-size: .875rem; line-height: 1.75; }
+.number { color: var(--primary); font-weight: 700; font-size: .65rem; letter-spacing: .13em; margin-bottom: 1.2rem; }
+.copy h3 { font-size: clamp(1.5rem, 2vw, 2rem); font-weight: 700; color: var(--surface-heading); line-height: 1.12; letter-spacing: -.04em; text-wrap: balance; }
+.cardDescription { margin-top: 1rem; color: var(--surface-foreground); font-size: .875rem; line-height: 1.75; }
 .artwork { position: absolute; inset: auto -1px -1px; height: 54%; pointer-events: none; mask-image: linear-gradient(to bottom, transparent, black 23%); }
 .image { object-fit: cover; object-position: center bottom; transition: transform 900ms cubic-bezier(.22, 1, .36, 1); }
-@media (hover: hover) and (pointer: fine) { .card:hover { border-color: #b3a0d044; } .card:hover .image { transform: translateY(-4px) scale(1.02); } }
+@media (hover: hover) and (pointer: fine) { .card:hover .image { transform: translateY(-4px) scale(1.02); } }
 @media (max-width: 1023px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; } .card { min-height: 30rem; } .intro { gap: 2rem; } }
-@media (max-width: 639px) { .intro { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr; } .card { min-height: 30rem; } .copy { padding: 1.75rem; } .copy h3 { max-width: 15rem; font-size: 1.65rem; } .cardDescription { max-width: 20rem; } }
+@media (max-width: 639px) { .intro { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr; } .card { min-height: 30rem; } .copy { padding: 1.75rem; } .copy h3 { max-width: 17rem; font-size: 1.85rem; } .cardDescription { max-width: 20rem; } }
 @media (prefers-reduced-motion: reduce) { .card, .image { transition: none; } .card:hover .image { transform: none; } }
 
+
+.cardShadow { box-shadow: 0 2px 6px rgb(35 45 65 / 5%), 0 12px 28px -12px rgb(35 45 65 / 16%), 0 24px 48px -24px rgb(59 105 76 / 16%), 0 10px 24px -18px rgb(99 142 109 / 12%); }

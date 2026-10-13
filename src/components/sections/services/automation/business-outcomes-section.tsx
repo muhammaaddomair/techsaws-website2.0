@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import linkStyles from "@/components/sections/home/tech-stack-section.module.css";
 import titleStyles from "./section-heading-preview.module.css";
 
 import SectionTitleDots from "@/components/shared/section-title-dots";
@@ -26,7 +29,7 @@ function OutcomeCard({ item, index }: { item: (typeof data.items)[number]; index
 }
 export default function BusinessOutcomesSection() {
   return <section aria-labelledby="ai-impact-heading" className={`surface-light section ${styles.section}`}><div className="page-layout">
-    <div className={styles.intro}><div className={styles.introCopy}><h2 id="ai-impact-heading" className={titleStyles.heading}>{data.heading[0]}<br />{data.heading[1]}</h2><p>{data.description}</p></div><p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p></div>
+    <div className={styles.intro}><div className={styles.introCopy}><h2 id="ai-impact-heading" className={titleStyles.heading}>{data.heading[0]}<br />{data.heading[1]}</h2><p>{data.description}</p></div><div className={styles.serviceNavigation}><p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p><ul className={styles.serviceLinks} aria-label="Explore our work and approach">{[{ href: "/case-studies", label: "Explore Case Studies" }, { href: "/capabilities", label: "Our AI Capabilities" }, { href: "/methodology", label: "How We Deliver" }].map((link) => <li key={link.href}><Link href={link.href} className={`${linkStyles.capabilitiesLink} ${styles.serviceTextLink}`}><span>{link.label}</span><ArrowUpRight size={16} aria-hidden="true" /></Link></li>)}</ul></div></div>
     <div className={styles.flow}><svg aria-hidden="true" className={styles.route} viewBox="0 0 1200 1080" preserveAspectRatio="none" fill="none"><path className={styles.dashedRoute} d="M70 18H1130Q1182 18 1182 70V486Q1182 540 1130 540Q1182 540 1182 594V1010Q1182 1062 1130 1062H70Q18 1062 18 1010V594Q18 540 70 540Q18 540 18 486V70Q18 18 70 18Z" /><g className={styles.routeArrows}><path d="M180 10l8 8-8 8" /><path d="M598 10l8 8-8 8" /><path d="M1016 10l8 8-8 8" /><path d="M188 1054l-8 8 8 8" /><path d="M598 1054l-8 8 8 8" /><path d="M1008 1054l-8 8 8 8" /></g></svg><div className={styles.bento}>{data.items.map((item, index) => <OutcomeCard key={item.id} item={item} index={index} />)}</div></div>
   </div></section>;
 }

@@ -23,7 +23,7 @@ export default function SoftwareDigitalProductsPage() {
         <SectionBoundary direction="light-dark" />
         <ProcessSection headingClassName={titleStyles.heading} />
         <FAQSection headingClassName={titleStyles.heading} />
-        <CTASection />
+        <CTASection panelSurface="light" />
       </SectionCanvas>
     </main>
   );

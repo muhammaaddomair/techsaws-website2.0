@@ -1,5 +1,8 @@
 "use client";
 
+import type { CSSProperties } from "react";
+import shineStyles from "@/components/layouts/header.module.css";
+
 import titleStyles from "@/components/sections/services/automation/section-heading-preview.module.css";
 
 
@@ -10,6 +13,10 @@ import { useRef } from "react";
 import { Check, CircleHelp, Layers3, Users, Workflow, Wrench, ArrowUpRight } from "lucide-react";
 import { m as motion, useInView, useReducedMotion } from "framer-motion";
 import { whySectionData as data } from "@/data/pages/home-page-data";
+import { Button } from "@/components/ui/button";
+import ConnectLink from "@/components/shared/connect-link";
+import ROITooltip from "@/components/shared/roi-tooltip";
+import actionStyles from "./core-value-section.module.css";
 import styles from "./why-section.module.css";
 
 type Reason = (typeof data.reasons)[number];
@@ -59,7 +66,7 @@ export default function WhySection() {
     <section className={`surface-light section ${styles.section}`} aria-labelledby="why-heading">
       <div className="page-layout">
         <div className={styles.intro}>
-          <p className={`${styles.description} max-md:hidden`}>{data.description}</p>
+          <div><p className={`${styles.description} max-md:hidden`}>{data.description}</p><Button asChild className={`group relative mt-5 min-h-11 gap-2 rounded-lg px-5 font-body ${actionStyles.goalsButton}`}><ConnectLink href="/connect"><span aria-hidden="true" className={shineStyles.shine} style={{ "--shine-duration": "8.1s", "--shine-delay": "-3.8s" } as CSSProperties} />Find the Right Solution<ArrowUpRight className={actionStyles.buttonArrow} aria-hidden="true" /><ROITooltip icon="goals" text="Focus your investment on what matters." /></ConnectLink></Button></div>
           <div className={styles.heading}>
             <p className={styles.eyebrow}><SectionTitleDots />{data.eyebrow}</p>
             <h2 id="why-heading" className={titleStyles.heading}>{data.heading[0]}<br />{data.heading[1]}</h2>

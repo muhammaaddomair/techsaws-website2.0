@@ -89,7 +89,7 @@ export const processSectionData = {
     {
       id: "plan",
       number: "03",
-      title: "Get a Clear Plan",
+      title: "Get a Clear Plan With Us",
       description:
         "Receive a proposed solution outlining the scope, timeline, deliverables, and estimated cost.",
       image: "/images/process-plan-rings.png",

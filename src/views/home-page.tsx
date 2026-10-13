@@ -21,17 +21,17 @@ function HomePage() {
         </div>
       </section>
       <SectionCanvas surface="dark" layout="full">
-      <div className="page-layout">
-        <TechStackSection />
-        <CoreValueSection />
-      </div>
-      <SectionBoundary direction="dark-light" />
-      <ServicesSection />
-      <WhySection />
-      <SectionBoundary direction="light-dark" />
-      <ProcessSection headingClassName={titleStyles.heading} />
-      <FAQSection headingClassName={`mt-4 ${titleStyles.heading}`} />
-      <CTASection />
+        <div className="page-layout">
+          <TechStackSection />
+          <CoreValueSection />
+        </div>
+        <SectionBoundary direction="dark-light" />
+        <ServicesSection />
+        <WhySection />
+        <SectionBoundary direction="light-dark" />
+        <ProcessSection headingClassName={titleStyles.heading} />
+        <FAQSection headingClassName={`mt-4 ${titleStyles.heading}`} />
+        <CTASection panelSurface="light" />
       </SectionCanvas>
     </main>
   );
