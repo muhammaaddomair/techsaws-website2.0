@@ -1,0 +1,10 @@
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(38rem, 88svh, 56rem); background: var(--dark-background); }
+.background { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 65% 40%, #172332, #080b10 75%); }
+.video { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 1.4s ease; }
+.video[data-ready="true"] { opacity: .85; }
+.glass { position: absolute; inset: 0; background: linear-gradient(125deg, #b5c8e309, #ffffff03 45%, #080b1020); }
+.mask { position: absolute; inset: 0; background: linear-gradient(90deg, #080b1066, #080b1026 60%, #080b103d), linear-gradient(180deg, #080b1033, transparent 28%, transparent 50%, var(--dark-background) 100%); }
+.hero::after { content: ""; position: absolute; inset: auto 0 0; height: clamp(8rem, 20vh, 14rem); pointer-events: none; background: linear-gradient(to bottom, transparent, var(--dark-background) 92%); }
+.content { position: relative; z-index: 1; min-height: inherit; display: flex; align-items: center; padding-block: clamp(10rem, 14vw, 13rem) var(--section-space); }
+@media (width < 768px) { .hero { min-height: 80svh; min-height: max(34rem, 80svh); } .mask { background: linear-gradient(180deg, #080b1040, #080b1026 45%, var(--dark-background) 100%); } }
+@media (prefers-reduced-motion: reduce) { .video { display: none; transition: none; } }
